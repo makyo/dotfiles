@@ -1,0 +1,210 @@
+
+" General options {{{
+set nocompatible        " Use vim features
+set showmatch           " Briefly jump to matching brackets
+set incsearch           " Incremental search
+set autoindent
+set expandtab           " Expand tabs by default
+set encoding=utf-8
+scriptencoding utf-8
+" More intuitive baskspacing
+set backspace=indent,eol,start
+
+" Get rid of all bells! {{{
+set noerrorbells
+set visualbell
+set t_vb=
+" }}}
+
+" Syncing the swapfile makes for slow responses with NFS or with a spun-down
+" hard disk.  Let the system decide when to sync.
+set swapsync=
+
+" }}}
+
+" Automatic formatting stuff {{{
+" Avoid automatically line breaking normal text in most circumstances.  (LaTeX
+" is an exception, implemented later.)
+set formatoptions-=t
+
+" I used to use this so it was easier to see linebreaks, but it also makes it
+" more difficult to copy and paste into other applications
+"set linebreak showbreak=>\ 
+" }}}
+
+" Display stuff {{{
+" set background=dark     " Make the font colors brighter
+
+" Load custom colors
+" colors mine
+
+" Turn on syntax highlighting if our version of vim supports it (i.e. avoid
+" errors when running vim.tiny)
+if has("syntax")
+  syntax on
+endif
+
+" Since some of the machines we're working on don't have X, let's
+" get a status line so we know which file we're working on
+set laststatus=2
+
+" Turns on some options in the python syntax highlighter, but they're generally
+" more annoying than helpful...
+" let python_highlight_all = 1
+" }}}
+
+" Mouse stuff {{{
+" Hopefully reasonable mouse defaults...  This enables the mouse in normal and
+" visual mode, so we can use it to resize windows in normal mode (and, if we
+" wish, to select stuff).  It also enables it when editing a help file.  (I'm
+" not sure if this is needed, since we'd be in normal mode at that point...)
+if has("mouse")
+  set mouse=nvh
+endif
+" }}}
+
+" Folding setup {{{
+" Use indentation-based folding by default, but disable it (enable with zi)
+if has("folding")
+  set foldmethod=indent
+  set foldminlines=3
+  set nofoldenable
+endif
+" }}}
+
+" Set up CtrlP {{{
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn\|\.bzr$\|develop-eggs$\|site-packages',
+  \ 'file': '\.pyc$|\.exe$\|\.so$\|\.dll$\|\.swp$',
+  \ 'link': 'download-cache|eggs|yui',
+  \ }
+"}}}
+
+" autocmd stuff {{{
+if has("autocmd")
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal g'\"" |
+    \ endif
+
+  au BufRead,BufNewFile *.ledger set ft=ledger noet
+  au BufRead,BufNewFile *.hledger set ft=ledger ts=4 sw=4 sts=4
+
+  " Handlebars
+  au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
+  au BufRead,BufNewFile *.less set ft=css
+  au BufRead,BufNewFile /usr/local/nginx/conf/*,nginx.conf* set ft=nginx ts=4 sw=4 sts=4 et
+  au BufRead,BufNewFile *.go set ft=go
+  au BufRead,BufNewFile *.md,*.mkd set ft=markdown
+
+  " When writing most code, use 4 character soft tabstops and 79 character
+  " textwidth
+  autocmd FileType python,php,pyrex,c,cpp,css,html,xml,sh,matlab,tex,debchangelog,rnc,groovy,handlebars,htmldjango,markdown
+    \ set ts=4 sw=4 sts=4
+  autocmd FileType make set noet
+
+  " Javascript, use 2
+  autocmd FileType javascript,yaml,coffee set ts=2 sw=2 sts=2
+
+  autocmd FileType go set ts=4 sw=4 sts=4 noexpandtab
+
+
+  autocmd BufRead,BufNewFile * if getline(1) =~ '^.+node$' | setf javascript | endif
+  
+  " Use indent plugins
+  filetype indent on
+	
+  " Older version of vim doesn't know about muttng
+  autocmd BufNewFile,BufRead muttng-*-\w\+ setf mail
+
+  " Dude - editing inline bash with vim!
+  autocmd BufNewFile,BufRead bash-fc-* setf sh
+
+  " gnuplot macros are much nicer to edit in shell-syntax mode
+  autocmd BufNewFile,BufRead *.gnu setf sh
+  
+  " textwidth in an email should be 72 characters
+  autocmd FileType mail,debchangelog set tw=72
+  autocmd FileType markdown,rst set fo=tc spell
+  
+  " Formatting stuff for TeX
+  autocmd FileType tex,yaml set ts=2 sw=2 sts=2 fo=tc
+  
+  " We're using .def for our own stuff, which has nothing to do with
+  " Microsoft's .def type
+  autocmd FileType def syntax clear
+endif
+" }}}
+
+" Custom commands/key bindings {{{
+" date/time, for inserting pyblosxom timestamps
+let $TZ = "UTC" " Yeah, this is ugly, but it makes the time stuff consistent.
+iab  blogdate  <!-- postdate: <c-r>=strftime("%FT%TZ")<cr> --> 
+
+" Tab navigation {{{
+" Open a new tab with CTRL-T, navigate with CTRL-<Page-Up> and CTRL-<Page-Dn>
+" or CTRL-N and CTRL-P.  Only works in normal mode.
+nmap <C-t> :tabnew<cr>
+nmap <C-n> :tabnext<cr>
+nmap <C-p> :tabprevious<cr>
+" }}}
+" }}}
+
+let g:GPGPrimeAgent = 1
+
+let g:writeas_u = "makyo"
+let g:writeas_p = "4AX%$j5R&w3w"
+let g:writeas_b = "makyo"
+
+call pathogen#infect() 
+
+function WritemodeEnter()
+  " Color name (:help cterm-colors) or ANSI code
+  let g:limelight_conceal_ctermfg = 'gray'
+  let g:limelight_conceal_ctermfg = 240
+
+  " Color name (:help gui-colors) or RGB color
+  let g:limelight_conceal_guifg = 'DarkGray'
+  let g:limelight_conceal_guifg = '#777777'
+
+  " Default: 0.5
+  let g:limelight_default_coefficient = 0.7
+
+  " Number of preceding/following paragraphs to include (default: 0)
+  let g:limelight_paragraph_span = 1
+
+  " Beginning/end of paragraph
+  "   When there's no empty line between the paragraphs
+  "   and each paragraph starts with indentation
+  let g:limelight_bop = '^\s'
+  let g:limelight_eop = '\ze\n^\s'
+
+  " Highlighting priority (default: 10)
+  "   Set it to -1 not to overrule hlsearch
+  let g:limelight_priority = -1
+  hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+  Limelight
+  Goyo
+  SoftPencil
+  set number
+  set showbreak="↳ "
+endfunction
+
+function WritemodeLeave()
+  Limelight!
+  Goyo!
+  set nonumber
+  set showbreak=
+  set complete=
+endfunction
+
+command! Writemode call WritemodeEnter()
+command! WritemodeOn call WritemodeEnter()
+command! WritemodeOff call WritemodeLeave()
+
+" vim: foldmethod=marker ts=2 sw=2 sts=2 tw=79 et
