@@ -1,0 +1,12 @@
+set fish_key_bindings fish_vi_key_bindings
+ssh-agent
+set -x GOPATH "/home/makyo/work/go"
+set -x PATH $PATH $GOPATH/bin ~/bin $FACTORPATH
+set -x AWS_ACCESS_KEY_ID  AKIAJIDFYPIHO225SUBQ 
+set -x AWS_SECRET_ACCESS_KEY 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
+set -x GPG_TTY (tty)
+set -x EDITOR "/usr/bin/vim"
+set -x JUJU_REPOSITORY /home/makyo/work/charms
+set -x LAYER_PATH $JUJU_REPOSITORY/layers
+set -x INTERFACE_PATH $JUJU_REPOSITORY/interfaces
+set -l GPG_AGENT_INFO (gpg-agent -q --daemon | cut -d '=' -f 2 | cut -d ';' -f 1)
