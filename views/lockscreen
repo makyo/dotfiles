@@ -1,0 +1,3 @@
+#!/bin/bash
+
+scrot -e 'convert $f -blur 20x20 $f && i3lock -i $f && rm $f'

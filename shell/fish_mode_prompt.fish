@@ -1,5 +1,5 @@
 function fish_mode_prompt --description 'Displays the current mode'
-  # Do nothing if not in vi mode
+        # I don't like the indicators. They're too bright
 #  if test "$fish_key_bindings" = "fish_vi_key_bindings"
 #  echo
 #  switch $fish_bind_mode

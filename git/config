@@ -2,15 +2,12 @@
         editor = vim
 [user]
         name = Madison Scott-Clary
-        email = madison.scott-clary@canonical.com
-[github]
-        username = makyo
-        token = 7215a673f47d883fb3f9fbce8a4305e3ac0a9bd2
+        email = madison@archive.org
 [alias]
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
         graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
         ### 
-        ### QA a pull request branch on remote: juju
+        ### QA a pull request branch on remote
         ###
         # Pull info on the specified pull request from the origin remote, not your
         # github fork. The pull request is not on your fork.
@@ -18,5 +15,5 @@
         # git qa-pr juju 6 qa-sticky-headers
         qa-pr = "!sh -c 'git checkout develop; git pull $0 develop; git checkout -b $2; git fetch-pr $0 $1; git merge pr/$1'"
 
-        # Sync origin/develop with juju/develop
+        # Sync origin with upstream
         sync = "!f() { git checkout $2 && git pull $1 $2 && git push origin $2; }; f"

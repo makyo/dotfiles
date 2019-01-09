@@ -11,24 +11,18 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 ### custom colors
-set $darkbg "#222222"
-set $lightbg "#333333"
-set $brightbg "#444444"
-set $darkborder "#000000"
-set $lightborder "#444444"
+set $darkbg      "#222222"
+set $lightbg     "#333333"
 set $darkwarning "#552222"
-set $lightfg "#eeeeee"
-set $darkfg "#dddddd"
-set $darkhilite "#002233"
-set $lighthilite "#114455"
-set $brighthilite "#336688"
+set $lightfg     "#eeeeee"
+set $darkfg      "#666666"
 
-#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $brighthilite      $brightbg      $lightfg  $brighthilite  $lighthilite
-client.unfocused        $darkborder      $darkborder      $darkfg      $darkborder  $darkborder
-client.focused_inactive $lightborder      $lightborder      $lightfg      $darkborder  $darkborder
-client.urgent           $darkwarning    $darkwarning    $lightborder      $darkwarning    $darkwarning
-client.background       $lightborder
+#                       BORDER          BACKGROUND      TEXT            INDICATOR       CHILD_BORDER
+client.focused          $darkbg         $darkbg         $lightfg        $darkbg         $darkbg
+client.unfocused        $darkbg         $darkbg         $darkfg         $darkbg         $darkbg
+client.focused_inactive $darkbg         $darkbg         $lightfg        $darkbg         $darkbg
+client.urgent           $darkwarning    $darkwarning    $lightfg        $darkwarning    $darkwarning
+client.background       $darkbg
 ### /
 
 set $mod Mod4
@@ -176,24 +170,31 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status -c /home/makyo/.config/i3/i3status.conf
         position top
+        font pango:"Ubuntu Mono" 9
         colors {
-                background $lightbg
+                background $darkbg
+                statusline $lightfg
+                focused_workspace $lightbg $lightbg $lightfg
+                inactive_workspace $darkbg $darkbg $darkfg
         }
 }
 
 ### Additional config
 # lock
 bindsym $mod+ctrl+l exec lockscreen
+exec --no-startup-id xautolock -time 1 -locker ~/bin/lockscreen -notify 3 -detectsleep -corners ---- &
 
-# usd for natural scrolling
-exec unity-settings-daemon
-exec nm-applet
+# trackpad behavior
+exec --no-startup-id synclient VertScrollDelta=-79 TapButton1=0 TapButton2=0
 
 # Bluetooth
-exec --no-startup-id blueman-applet
+#exec --no-startup-id blueman-applet
+
+# Networking
+exec --no-startup-id nm-applet
 
 # Background
-exec --no-startup-id xsetroot -solid $darkhilite
+exec --no-startup-id xsetroot -solid $darkbg
 
 # gaps
 gaps inner 10
@@ -213,3 +214,6 @@ bindsym XF86MonBrightnessDown exec light -U 10.0 # decrease screen brightness
 
 # Focus
 focus_follows_mouse no
+
+# startup
+exec --no-startup-id dropbox start

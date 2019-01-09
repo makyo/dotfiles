@@ -1,0 +1,12 @@
+[Unit]
+Description=i3lock on resume
+Before=suspend.target
+
+[Service]
+User=makyo
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/home/makyo/bin/suspend-lockscreen
+
+[Install]
+WantedBy=suspend.target
