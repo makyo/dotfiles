@@ -37,3 +37,6 @@
 [submodule "editor/vim/bundle/vim-airline"]
 	path = editor/vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
+[submodule "editor/vim/bundle/vim-airline-themes"]
+	path = editor/vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
