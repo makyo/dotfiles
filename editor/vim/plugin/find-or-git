@@ -1,0 +1,8 @@
+#!/bin/bash
+
+git status > /dev/null 2>&1
+if [ $? -eq 0 ] ; then
+    git ls-tree --full-tree --name-only -r HEAD
+else
+    find . -type f
+fi

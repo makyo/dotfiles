@@ -14,7 +14,7 @@ function! FzyCommand(choice_command, fzy_args, vim_command)
 endfunction
 
 function! FzyFile()
-	call FzyCommand("find * -type f", "", ":e")
+	call FzyCommand("find-or-git", "", ":e")
 endfunction
 
 function! FzyBuffer()
