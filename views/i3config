@@ -59,10 +59,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -181,8 +181,8 @@ bar {
 
 ### Additional config
 # lock
-bindsym $mod+ctrl+l exec lockscreen
-exec --no-startup-id xautolock -time 1 -locker ~/bin/lockscreen -notify 3 -detectsleep -corners ---- &
+bindsym $mod+l exec lockscreen
+exec --no-startup-id xautolock -time 5 -locker ~/bin/lockscreen -notify 3 -detectsleep -corners ---- &
 
 # trackpad behavior
 exec --no-startup-id synclient VertScrollDelta=-79 TapButton1=0 TapButton2=0

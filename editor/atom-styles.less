@@ -1,0 +1,85 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
+
+// style the background color of the tree view
+.tree-view {
+  // background-color: whitesmoke;
+  background-color: #222;
+}
+
+// style the background and foreground colors on the atom-text-editor-element itself
+atom-text-editor {
+  // color: white;
+  // background-color: hsl(180, 24%, 12%);
+  background-color: #222;
+}
+
+// style UI elements inside atom-text-editor
+atom-text-editor .cursor {
+  // border-color: red;
+}
+
+// Everything below here is new.
+.tab-bar {
+    background-color: #222;
+    box-shadow: none;
+}
+
+.tab-bar .tab {
+    background-color: #222;
+    border-left: none;
+}
+
+.tab-bar .tab.active[data-type$="Editor"] {
+    background-color: #333;
+}
+
+atom-pane.active .tab.active:before {
+    background-color: #666;
+}
+
+.tab-bar .tab.modified:not(:hover) .close-icon {
+    color: #666;
+}
+
+atom-dock .tab-bar .tab.active {
+    background-color: #222;
+}
+
+atom-pane-container atom-pane {
+    border-right: 2px solid #222;
+}
+
+.footer .status-bar {
+    background-color: #222;
+}
+
+.atom-dock-inner.atom-dock-open.left {
+    border: 1px solid #222;
+}
+
+atom-pane-container atom-pane {
+    border-bottom: 1px solid #222;
+}
+
+.scrollbars-visible-always atom-text-editor ::-webkit-scrollbar-track {
+    background-color: #222;
+}
+
+.scrollbars-visible-always atom-text-editor ::-webkit-scrollbar-thumb {
+    border: 3px solid #222;
+}
