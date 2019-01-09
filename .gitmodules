@@ -1,3 +1,39 @@
 [submodule "tf"]
 	path = tf
 	url = git@gist.github.com:e436c94c6e569e9d7e50be52eb0027d5.git
+[submodule "editor/vim/bundle/vim-fish"]
+	path = editor/vim/bundle/vim-fish
+	url = https://github.com/dag/vim-fish.git
+[submodule "editor/vim/bundle/vim-litecorrect"]
+	path = editor/vim/bundle/vim-litecorrect
+	url = https://github.com/reedes/vim-litecorrect
+[submodule "editor/vim/bundle/limelight.vim"]
+	path = editor/vim/bundle/limelight.vim
+	url = https://github.com/junegunn/limelight.vim
+[submodule "editor/vim/bundle/vim-ledger"]
+	path = editor/vim/bundle/vim-ledger
+	url = https://github.com/ledger/vim-ledger
+[submodule "editor/vim/bundle/mustache"]
+	path = editor/vim/bundle/mustache
+	url = https://github.com/mustache/vim-mustache-handlebars
+[submodule "editor/vim/bundle/vim-coffee-script"]
+	path = editor/vim/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "editor/vim/bundle/goyo.vim"]
+	path = editor/vim/bundle/goyo.vim
+	url = https://github.com/junegunn/goyo.vim
+[submodule "editor/vim/bundle/vim-pencil"]
+	path = editor/vim/bundle/vim-pencil
+	url = https://github.com/reedes/vim-pencil
+[submodule "editor/vim/bundle/lite-dfm"]
+	path = editor/vim/bundle/lite-dfm
+	url = https://github.com/bilalq/lite-dfm
+[submodule "editor/vim/bundle/vim-wordy"]
+	path = editor/vim/bundle/vim-wordy
+	url = https://github.com/reedes/vim-wordy
+[submodule "editor/vim/bundle/vim-grammarous"]
+	path = editor/vim/bundle/vim-grammarous
+	url = https://github.com/rhysd/vim-grammarous
+[submodule "editor/vim/bundle/vim-airline"]
+	path = editor/vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
