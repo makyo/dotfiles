@@ -206,4 +206,6 @@ command! Writemode call WritemodeEnter()
 command! WritemodeOn call WritemodeEnter()
 command! WritemodeOff call WritemodeLeave()
 
+let g:airline_powerline_fonts = 1
+
 " vim: foldmethod=marker ts=2 sw=2 sts=2 tw=79 et
