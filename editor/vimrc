@@ -4,6 +4,7 @@ set nocompatible        " Use vim features
 set showmatch           " Briefly jump to matching brackets
 set incsearch           " Incremental search
 set autoindent
+set breakindent         " Softwrap indents with previous line 
 set expandtab           " Expand tabs by default
 set encoding=utf-8
 scriptencoding utf-8
@@ -70,6 +71,8 @@ if has("folding")
   set foldminlines=3
   set nofoldenable
 endif
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 " }}}
 
 " Set up CtrlP {{{
@@ -156,10 +159,6 @@ nmap <C-p> :tabprevious<cr>
 " }}}
 
 let g:GPGPrimeAgent = 1
-
-let g:writeas_u = "makyo"
-let g:writeas_p = "4AX%$j5R&w3w"
-let g:writeas_b = "makyo"
 
 call pathogen#infect() 
 

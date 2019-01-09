@@ -1,5 +1,6 @@
 function fish_prompt --description 'Write out the prompt'
-	set stat $status
+	
+    set stat $status
 
 # Just calculate these once, to save a few cycles when displaying the prompt
     if not set -q __fish_prompt_hostname
@@ -54,7 +55,8 @@ if not set -q __fish_prompt_cwd
             set -g __fish_prompt_cwd (set_color $fish_color_cwd)
         end
 
-printf '\n[%s%s%s] %s%s@%s %s%s%s%s%s \f\r%s' "$__fish_color_status" (date "+%H:%M:%S") $__fish_prompt_normal "$__fish_color_blue" $USER $__fish_prompt_hostname "$__fish_prompt_cwd" (semi_prompt_pwd) "$__fish_prompt_normal" "$git_prompt" $__fish_prompt_normal $indicator
+printf '\f\r[%s%s%s] %s%s@%s %s%s%s%s%s \f\r%s' "$__fish_color_status" (date "+%H:%M:%S") $__fish_prompt_normal "$__fish_color_blue" $USER $__fish_prompt_hostname "$__fish_prompt_cwd" (semi_prompt_pwd) "$__fish_prompt_normal" "$git_prompt" $__fish_prompt_normal $indicator
 
 end
 end
+
