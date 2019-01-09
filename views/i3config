@@ -173,7 +173,7 @@ bar {
         font pango:"Ubuntu Mono" 9
         colors {
                 background $darkbg
-                statusline $lightfg
+                statusline $darkfg
                 focused_workspace $lightbg $lightbg $lightfg
                 inactive_workspace $darkbg $darkbg $darkfg
         }
