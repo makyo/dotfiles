@@ -1,5 +1,5 @@
-git/config-extra
-shell/extras.fish
+extra
 tf/.git
+tf/.gitignore
 tf/wixxx-info.tf
 tf/worlds.tf
