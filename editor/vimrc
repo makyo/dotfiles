@@ -206,6 +206,7 @@ command! Writemode call WritemodeEnter()
 command! WritemodeOn call WritemodeEnter()
 command! WritemodeOff call WritemodeLeave()
 
+colo elflord
 let g:airline_powerline_fonts = 1
 let g:airline_theme='kolor'
 let g:airline_section_x = ' %-0.10{strftime("%I:%M %p")}'
