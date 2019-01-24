@@ -16,6 +16,6 @@ function proxyhome
         sshuttle -r madison@sshgw-sf.us.archive.org 207.241.224.0/20
 end
 
-function ps-
-        ps -HFe
+function pss
+        ps -HFe|less
 end
