@@ -108,7 +108,7 @@ if has("autocmd")
   " When writing most code, use 4 character soft tabstops and 79 character
   " textwidth
   autocmd FileType python,php,pyrex,c,cpp,css,html,xml,sh,matlab,tex,debchangelog,rnc,groovy,handlebars,htmldjango,markdown
-    \ set ts=4 sw=4 sts=4
+    \ set ts=4 sw=4 sts=4 et
   autocmd FileType make set noet
 
   " Javascript, use 2
