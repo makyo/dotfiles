@@ -120,8 +120,8 @@ if has("autocmd")
   autocmd BufRead,BufNewFile * if getline(1) =~ '^.+node$' | setf javascript | endif
   
   " Use indent plugins
-  filetype indent on
-	
+  filetype plugin indent on
+
   " Older version of vim doesn't know about muttng
   autocmd BufNewFile,BufRead muttng-*-\w\+ setf mail
 
@@ -161,6 +161,10 @@ nmap <C-p> :tabprevious<cr>
 let g:GPGPrimeAgent = 1
 
 call pathogen#infect() 
+
+" tagbar stuff
+let g:tagbar_ctags_bin = '/snap/bin/universal-ctags.ctags'
+nmap <F8> :TagbarToggle<CR>
 
 function WritemodeEnter()
   " Color name (:help cterm-colors) or ANSI code
