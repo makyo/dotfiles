@@ -1,7 +1,13 @@
 if status is-interactive
         set fish_key_bindings fish_vi_key_bindings
-        set -x GOPATH "/home/makyo/work/go"
-        set -x PATH $PATH $GOPATH/bin ~/bin ~/.node_modules/bin $FACTORPATH
+        set -x GOPATH "$HOME/work/go"
+        set -x PATH $PATH ~/bin
+        if test -d $GOPATH/bin
+                set -x PATH $PATH $GOPATH/bin
+        end
+        if test -d ~/.node_modules/bin
+                set -x PATH $PATH ~/.node_modules/bin
+        end
         set -x GPG_TTY (tty)
         set -x EDITOR "/usr/bin/vim"
         set -x JUJU_REPOSITORY /home/makyo/work/charms

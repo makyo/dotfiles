@@ -1,5 +1,9 @@
-function sshwg
+function sshgw
         ssh -A madison@sshgw-sf.us.archive.org
+end
+
+function moshgw
+        mosh madison@sshgw-sf.us.archive.org
 end
 
 function devbox
