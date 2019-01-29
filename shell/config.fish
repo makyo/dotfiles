@@ -8,6 +8,9 @@ if status is-interactive
         if test -d ~/.node_modules/bin
                 set -x PATH $PATH ~/.node_modules/bin
         end
+        if test -d /snap/bin
+                set -x PATH $PATH /snap/bin
+        end
         set -x GPG_TTY (tty)
         set -x EDITOR "/usr/bin/vim"
         set -x JUJU_REPOSITORY /home/makyo/work/charms
