@@ -150,23 +150,21 @@ let $TZ = "UTC" " Yeah, this is ugly, but it makes the time stuff consistent.
 iab  blogdate  <!-- postdate: <c-r>=strftime("%FT%TZ")<cr> --> 
 
 " Tab navigation {{{
-" Open a new tab with CTRL-T, navigate with CTRL-<Page-Up> and CTRL-<Page-Dn>
-" or CTRL-N and CTRL-P.  Only works in normal mode.
-nmap <C-t> :tabnew<cr>
-nmap <C-n> :tabnext<cr>
-nmap <C-p> :tabprevious<cr>
+" Open a new tab with \t in normal mode
+nmap <leader>t :tabnew<cr>
 " }}}
 " }}}
+
+call pathogen#infect() 
 
 let g:GPGPrimeAgent = 1
 
-call pathogen#infect() 
 
 " tagbar stuff
 let g:tagbar_ctags_bin = '/snap/bin/universal-ctags.ctags'
 nmap <F8> :TagbarToggle<CR>
 
-function WritemodeEnter()
+function! WritemodeEnter()
   " Color name (:help cterm-colors) or ANSI code
   let g:limelight_conceal_ctermfg = 'gray'
   let g:limelight_conceal_ctermfg = 240
@@ -198,7 +196,7 @@ function WritemodeEnter()
   set showbreak="↳ "
 endfunction
 
-function WritemodeLeave()
+function! WritemodeLeave()
   Limelight!
   Goyo!
   set nonumber
