@@ -46,3 +46,6 @@
 [submodule "editor/vim/bundle/tagbar"]
 	path = editor/vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
+[submodule "st"]
+	path = st
+	url = git@gist.github.com:322d825a00c0d468813fba9e94e2412f.git
