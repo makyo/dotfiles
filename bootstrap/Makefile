@@ -7,6 +7,7 @@ x: all x-software x-link
 .PHONY: submodules
 submodules: clone
 	cd ~/.dotfiles; \
+	git submodule init; \
 	git submodule update
 
 .PHONY: clone
