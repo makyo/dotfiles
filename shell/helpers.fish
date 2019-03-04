@@ -23,3 +23,12 @@ end
 function pss
         ps -HFe|less
 end
+
+if command lsd --version > /dev/null 2>&1
+        function ll
+                        lsd -l $argv
+        end
+        function ls
+                lsd $argv
+        end
+end
