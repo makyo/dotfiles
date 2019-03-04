@@ -30,7 +30,7 @@ end
 
 if command lsd --version > /dev/null 2>&1
         function ll
-                        lsd -l $argv
+                lsd -l $argv
         end
         function ls
                 lsd $argv
