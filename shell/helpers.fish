@@ -24,6 +24,10 @@ function pss
         ps -HFe|less
 end
 
+function fa
+        fd -HL --no-ignore-vcs $argv
+end
+
 if command lsd --version > /dev/null 2>&1
         function ll
                         lsd -l $argv

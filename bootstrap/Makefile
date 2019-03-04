@@ -68,6 +68,7 @@ link-bin:
 .PHONY: link-extra
 link-extra:
 	ln -s ~/.dotfiles/git/config ~/.gitconfig
+	ln -s ~/.dotfiles/fd/fdignore ~/.fdignore
 
 .PHONY: x-link
 x-link: link x-link-editor x-link-views
