@@ -37,8 +37,9 @@ link: link-shell link-chat link-editor link-views link-bin link-extra
 link-shell:
 	mkdir -p ~/.config/fish/functions
 	ln -s ~/.dotfiles/shell/config.fish ~/.config/fish/
-	ln -s ~/.dotfiles/shell/* ~/.config/fish/functions/
-	rm ~/.config/fish/functions/config.fish
+	ln -s ~/.dotfiles/shell/functions/* ~/.config/fish/functions/
+	rm -f ~/.bashrc
+	ln -s ~/.dotfiles/shell/bashrc ~/.bashrc
 
 .PHONY: link-chat
 link-chat:
