@@ -185,7 +185,7 @@ bindsym $mod+l exec lockscreen
 exec --no-startup-id xautolock -time 10 -locker ~/bin/lockscreen -notify 3 -detectsleep -corners ---- &
 
 # trackpad behavior
-exec --no-startup-id synclient VertScrollDelta=-79 TapButton1=0 TapButton2=0
+exec --no-startup-id synclient VertScrollDelta=-79 TapButton1=0 TapButton2=0 VertEdgeScroll=0
 
 # Bluetooth
 #exec --no-startup-id blueman-applet
