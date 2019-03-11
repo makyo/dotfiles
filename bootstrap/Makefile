@@ -1,5 +1,5 @@
 .PHONY: all
-all: submodules software link
+all: submodules software system link
 
 .PHONY: x
 x: all x-software x-link
@@ -17,7 +17,7 @@ clone: ~/.dotfiles
 .PHONY: software
 software:
 	sudo apt-add-repository -U ppa:makyo/st
-	sudo apt install fzy silversurfer-ag vim fish golang-go htop jq snapcraft texlive-xetex tf stimmtausch tmux powerline fonts-powerline python-powerline ruby-dev
+	sudo apt install fzy silversurfer-ag vim fish golang-go htop jq snapcraft texlive-xetex tf stimmtausch tmux powerline fonts-powerline python-powerline ruby-dev language-pack-eo aspell-eo
 	sudo dpkg -i ~/.dotfiles/bootstrap/fd*.deb ~/.dotfiles/bootstrap/lsd*.deb
 	sudo snap install hugo nextcloud-client universal-ctags
 	sudo pip3 install tv2
@@ -29,6 +29,10 @@ x-software:
 	sudo apt install i3 firefox atom sparkleshare
 	sudo dpkg -i ~/.dotfiles/bootstrap/light*.deb
 	sudo snap install spotify slack
+
+.PHONY: system
+system:
+	sudo update-locale LANG=eo.utf-8 LANGUAGE=eo:en_US
 
 .PHONY: link
 link: link-shell link-chat link-editor link-views link-bin link-extra
