@@ -1,6 +1,7 @@
 {
   "segments": [
     "newline",
+    "~/.config/powerline-shell/which_shell.py",
     "time",
     "~/.config/powerline-shell/battery.py",
     "virtual_env", 
@@ -16,6 +17,9 @@
   ],
   "time": {
     "format": "%H:%M"
+  },
+  "battery": {
+    "directory_warning": false
   },
   "theme": "~/.config/powerline-shell/theme.py"
 }

@@ -56,14 +56,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\
-\n[\[\e[1;3\`if [ \$? -eq 0 ]; then echo 2; else echo 1; fi\`m\]$(date "+%H:%M:%S")\[\e[00m\]] \
-\[\e[01;34m\]\u@\h\[\e[00m\] \[\e[01;32m\]\w\[\e[00m\] \
-\`git rev-parse --git-dir > /dev/null 2>&1 && echo -n \"(\$(git rev-parse --abbrev-ref HEAD))\"\`\n\
-↳ "
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+function _update_ps1() {
+    PS1="$(powerline-shell $?)"
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 unset color_prompt force_color_prompt
 

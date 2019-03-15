@@ -20,7 +20,7 @@ software:
 	sudo apt install fzy silversurfer-ag vim fish golang-go htop jq snapcraft texlive-xetex tf stimmtausch tmux powerline fonts-powerline python-powerline ruby-dev language-pack-eo aspell-eo
 	sudo dpkg -i ~/.dotfiles/bootstrap/fd*.deb ~/.dotfiles/bootstrap/lsd*.deb
 	sudo snap install hugo nextcloud-client universal-ctags
-	sudo pip3 install tv2
+	sudo pip3 install tv2 powerline-shell
 	sudo gem install jekyll bundler
 	git clone git@github.com:makyo/sparkleup.git ~/sparkleup
 
@@ -44,6 +44,7 @@ link-shell:
 	ln -s ~/.dotfiles/shell/functions/* ~/.config/fish/functions/
 	rm -f ~/.bashrc
 	ln -s ~/.dotfiles/shell/bashrc ~/.bashrc
+	ln -s ~/.dotfiles/shell/powerline-shell ~/.config/
 
 .PHONY: link-chat
 link-chat:
