@@ -1,4 +1,8 @@
-function fish_prompt --description 'Write out the prompt'
+function fish_prompt
+        powerline-shell --shell bare $status
+end
+
+function fish_prompt_old --description 'Write out the prompt'
 	
     set stat $status
 

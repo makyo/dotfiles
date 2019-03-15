@@ -1,0 +1,21 @@
+{
+  "segments": [
+    "newline",
+    "time",
+    "battery",
+    "virtual_env", 
+    "username", 
+    "hostname", 
+    "ssh", 
+    "cwd", 
+    "git", 
+    "hg", 
+    "jobs", 
+    "newline",
+    "root"
+  ],
+  "time": {
+    "format": "%H:%M"
+  },
+  "theme": "~/.config/powerline-shell/theme.py"
+}

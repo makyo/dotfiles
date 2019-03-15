@@ -3,7 +3,7 @@ function sshgw
 end
 
 function moshgw
-        mosh madison@sshgw-sf.us.archive.org
+        env LANG=en_US.utf-8 mosh madison@sshgw-sf.us.archive.org
 end
 
 function devbox
