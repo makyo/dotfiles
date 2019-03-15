@@ -2,3 +2,4 @@
 extra
 *.sw[op]
 .netrwhist
+*.py[oc]
