@@ -208,7 +208,15 @@ command! Writemode call WritemodeEnter()
 command! WritemodeOn call WritemodeEnter()
 command! WritemodeOff call WritemodeLeave()
 
+let java_highlight_java_lang_ids=1
 colo elflord
+hi  Comment term=bold ctermfg=DarkCyan
+hi  String  term=underline  ctermfg=103
+hi  Operator  ctermfg=204
+hi  Statement term=bold ctermfg=LightGreen
+hi  Conditional term=bold ctermfg=LightGreen
+hi  Repeat  term=bold ctermfg=LightGreen
+hi  Todo  term=standout ctermbg=54  ctermfg=LightCyan
 let g:airline_powerline_fonts = 1
 let g:airline_theme='kolor'
 let g:airline_section_x = ' %-0.10{strftime("%I:%M %p")}'
