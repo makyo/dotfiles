@@ -22,7 +22,7 @@ software:
 	sudo dpkg -i ~/.dotfiles/bootstrap/fd*.deb ~/.dotfiles/bootstrap/lsd*.deb
 	# Ignore errors on this because c'mon, snap...
 	-sudo snap install hugo nextcloud-client universal-ctags
-	sudo pip3 install tv2 powerline-shell
+	sudo pip3 install tv2 powerline-shell thefuck
 	sudo gem install jekyll bundler
 	-git clone git@github.com:makyo/sparkleup.git ~/sparkleup
 	cd ~/sparkleup; \
