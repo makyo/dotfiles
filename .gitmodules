@@ -52,3 +52,6 @@
 [submodule "private-dotfiles"]
 	path = private-dotfiles
 	url = gitea@makyo.dev:makyo/private-dotfiles.git
+[submodule "editor/vim/bundle/nerdtree"]
+	path = editor/vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
