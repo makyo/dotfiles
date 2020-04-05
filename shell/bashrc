@@ -61,7 +61,9 @@ function _update_ps1() {
 }
 
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+    if command -v powerline-shell; then
+        PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+    fi
 fi
 unset color_prompt force_color_prompt
 
@@ -75,7 +77,9 @@ xterm*|rxvt*)
 esac
 
 # use lsd instead of ls
-alias ls='lsd'
+if command -v lsd > /dev/null 2>&1; then
+    alias ls='lsd'
+fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
