@@ -6,6 +6,7 @@ set incsearch           " Incremental search
 set autoindent
 set breakindent         " Softwrap indents with previous line 
 set expandtab           " Expand tabs by default
+set number
 set encoding=utf-8
 scriptencoding utf-8
 " More intuitive baskspacing
@@ -103,7 +104,7 @@ if has("autocmd")
   au BufRead,BufNewFile *.less set ft=css
   au BufRead,BufNewFile /usr/local/nginx/conf/*,nginx.conf* set ft=nginx ts=4 sw=4 sts=4 et
   au BufRead,BufNewFile *.go set ft=go
-  au BufRead,BufNewFile *.md,*.mkd set ft=markdown
+  au BufRead,BufNewFile *.md,*.mkd set ft=markdown wrap linebreak
 
   " When writing most code, use 4 character soft tabstops and 79 character
   " textwidth
@@ -152,6 +153,7 @@ iab  blogdate  <!-- postdate: <c-r>=strftime("%FT%TZ")<cr> -->
 " Tab navigation {{{
 " Open a new tab with \t in normal mode
 nmap <leader>t :tabnew<cr>
+nmap <leader>C :tabclose<cr>
 " }}}
 " }}}
 
@@ -161,7 +163,7 @@ let g:GPGPrimeAgent = 1
 
 
 " tagbar stuff
-let g:tagbar_ctags_bin = '/snap/bin/universal-ctags.ctags'
+let g:tagbar_ctags_bin = '/snap/bin/universal-ctags'
 nmap <F8> :TagbarToggle<CR>
 
 function! WritemodeEnter()
@@ -192,14 +194,12 @@ function! WritemodeEnter()
   Limelight
   Goyo
   SoftPencil
-  set number
   set showbreak="↳ "
 endfunction
 
 function! WritemodeLeave()
   Limelight!
   Goyo!
-  set nonumber
   set showbreak=
   set complete=
 endfunction
@@ -217,8 +217,37 @@ hi  Statement term=bold ctermfg=LightGreen
 hi  Conditional term=bold ctermfg=LightGreen
 hi  Repeat  term=bold ctermfg=LightGreen
 hi  Todo  term=standout ctermbg=54  ctermfg=LightCyan
+hi  clear SpellBad
+hi  SpellBad  cterm=underline ctermfg=161
+hi  markdownItalic  cterm=italic ctermfg=Magenta
+hi  LineNr ctermfg=239
+
+hi  clear VertSplit
+hi  VertSplit ctermfg=239
+set fillchars+=vert:│
+
+hi  clear TabLineFill
+hi  clear TabLine
+hi  clear TabLineSel
+hi  TabLineFill cterm=underline ctermfg=239
+hi  TabLine cterm=underline ctermfg=239
+hi  TabLineSel  cterm=underline ctermfg=241 ctermbg=236
 let g:airline_powerline_fonts = 1
 let g:airline_theme='kolor'
 let g:airline_section_x = ' %-0.10{strftime("%I:%M %p")}'
+""" vim-airline provides a tabline formatter, but it's too busy for my tastes.
+""" All the same, here's what I was working with before.
+"let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+nmap <leader>f :NERDTree<cr>
+nmap <silent> <S-Up> :wincmd k<CR>
+nmap <silent> <S-Down> :wincmd j<CR>
+nmap <silent> <S-Left> :wincmd h<CR>
+nmap <silent> <S-Right> :wincmd l<CR>
+nmap <leader>8 :vertical resize 80<cr>
+set splitright splitbelow
 
 " vim: foldmethod=marker ts=2 sw=2 sts=2 tw=79 et
