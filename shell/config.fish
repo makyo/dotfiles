@@ -20,3 +20,5 @@ if status is-interactive
         source ~/.config/fish/functions/fish_prompt.fish
         source ~/.config/fish/functions/helpers.fish
 end
+
+thefuck --alias | source
