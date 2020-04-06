@@ -1,12 +1,19 @@
 
 " General options {{{
 set nocompatible        " Use vim features
+set nofoldenable        " Don't automatically fold
 set showmatch           " Briefly jump to matching brackets
 set incsearch           " Incremental search
-set autoindent
+set autoindent          " Automatically indent
 set breakindent         " Softwrap indents with previous line 
 set expandtab           " Expand tabs by default
-set encoding=utf-8
+set ts=4 sts=4 sw=4     " Prefer tab width of 4
+set formatoptions-=t    " Avoid line breaking normal text
+set formatoptions+=cro  " Format comments (wrap, include leaders on newline and o/O)
+set number              " Number lines
+set splitright splitbelow " Open splits to the right/below (makes more sense to me)
+set encoding=utf-8      " Duh
+set mouse=nvhi          " Mouse in normal, visual, help, insert
 scriptencoding utf-8
 " More intuitive baskspacing
 set backspace=indent,eol,start
@@ -23,35 +30,14 @@ set swapsync=
 
 " }}}
 
-" Automatic formatting stuff {{{
-" Avoid automatically line breaking normal text in most circumstances.  (LaTeX
-" is an exception, implemented later.)
-set formatoptions-=t
-
-" I used to use this so it was easier to see linebreaks, but it also makes it
-" more difficult to copy and paste into other applications
-"set linebreak showbreak=>\ 
-" }}}
+" Load plugins
+call pathogen#infect() 
 
 " Display stuff {{{
-" set background=dark     " Make the font colors brighter
-
-" Load custom colors
-" colors mine
-
 " Turn on syntax highlighting if our version of vim supports it (i.e. avoid
 " errors when running vim.tiny)
 if has("syntax")
-  syntax on
 endif
-
-" Since some of the machines we're working on don't have X, let's
-" get a status line so we know which file we're working on
-set laststatus=2
-
-" Turns on some options in the python syntax highlighter, but they're generally
-" more annoying than helpful...
-" let python_highlight_all = 1
 " }}}
 
 " Mouse stuff {{{
@@ -60,156 +46,71 @@ set laststatus=2
 " wish, to select stuff).  It also enables it when editing a help file.  (I'm
 " not sure if this is needed, since we'd be in normal mode at that point...)
 if has("mouse")
-  set mouse=nvh
 endif
 " }}}
 
-" Folding setup {{{
-" Use indentation-based folding by default, but disable it (enable with zi)
-if has("folding")
-  set foldmethod=indent
-  set foldminlines=3
-  set nofoldenable
-endif
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
-" }}}
+" When editing a file, always jump to the last cursor position
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal g'\"" |
+  \ endif
 
-" Set up CtrlP {{{
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn\|\.bzr$\|develop-eggs$\|site-packages',
-  \ 'file': '\.pyc$|\.exe$\|\.so$\|\.dll$\|\.swp$',
-  \ 'link': 'download-cache|eggs|yui',
-  \ }
-"}}}
+" filetype stuff {{{
+filetype plugin indent on
 
-" autocmd stuff {{{
-if has("autocmd")
-  " When editing a file, always jump to the last cursor position
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal g'\"" |
-    \ endif
+au BufRead,BufNewFile *.ledger,*.hledger set ft=ledger
+au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
+au BufRead,BufNewFile *.less set ft=css
+au BufRead,BufNewFile /usr/local/nginx/conf/*,nginx.conf* set ft=nginx ts=4 sw=4 sts=4 et
+au BufRead,BufNewFile *.go set ft=go
 
-  au BufRead,BufNewFile *.ledger set ft=ledger noet
-  au BufRead,BufNewFile *.hledger set ft=ledger ts=4 sw=4 sts=4
+" Node commands are javascript
+autocmd BufRead,BufNewFile * if getline(1) =~ '^.+node$' | setf javascript | endif
 
-  " Handlebars
-  au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
-  au BufRead,BufNewFile *.less set ft=css
-  au BufRead,BufNewFile /usr/local/nginx/conf/*,nginx.conf* set ft=nginx ts=4 sw=4 sts=4 et
-  au BufRead,BufNewFile *.go set ft=go
-  au BufRead,BufNewFile *.md,*.mkd set ft=markdown
+" The following use tabwidth 2
+autocmd FileType javascript,yaml,coffee,tex,yaml set ts=2 sw=2 sts=2
 
-  " When writing most code, use 4 character soft tabstops and 79 character
-  " textwidth
-  autocmd FileType python,php,pyrex,c,cpp,css,html,xml,sh,matlab,tex,debchangelog,rnc,groovy,handlebars,htmldjango,markdown,java,gitcommit
-    \ set ts=4 sw=4 sts=4 et
-  autocmd FileType make set noet
+" The following use literal tab characters.
+autocmd FileType go,ledger,make set noet
 
-  " Javascript, use 2
-  autocmd FileType javascript,yaml,coffee set ts=2 sw=2 sts=2
+" textwidth in an email should be 72 characters
+autocmd FileType mail,debchangelog set tw=72
 
-  autocmd FileType go set ts=4 sw=4 sts=4 noexpandtab
+" Writing stuff {{{
+autocmd FileType markdown,rst set spell
 
+" Use pencil when writing
+autocmd BufRead,BufNewFile *.md,*.mkd set ft=markdown wrap linebreak
+autocmd FileType tex,markdown SoftPencil
 
-  autocmd BufRead,BufNewFile * if getline(1) =~ '^.+node$' | setf javascript | endif
-  
-  " Use indent plugins
-  filetype plugin indent on
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
 
-  " Older version of vim doesn't know about muttng
-  autocmd BufNewFile,BufRead muttng-*-\w\+ setf mail
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+let g:limelight_paragraph_span = 2
 
-  " Dude - editing inline bash with vim!
-  autocmd BufNewFile,BufRead bash-fc-* setf sh
-
-  " gnuplot macros are much nicer to edit in shell-syntax mode
-  autocmd BufNewFile,BufRead *.gnu setf sh
-  
-  " textwidth in an email should be 72 characters
-  autocmd FileType mail,debchangelog set tw=72
-  autocmd FileType markdown,rst set fo=tc spell
-  
-  " Formatting stuff for TeX
-  autocmd FileType tex,yaml set ts=2 sw=2 sts=2 fo=tc
-  
-  " We're using .def for our own stuff, which has nothing to do with
-  " Microsoft's .def type
-  autocmd FileType def syntax clear
-endif
-" }}}
-
-" Custom commands/key bindings {{{
-" date/time, for inserting pyblosxom timestamps
-let $TZ = "UTC" " Yeah, this is ugly, but it makes the time stuff consistent.
-iab  blogdate  <!-- postdate: <c-r>=strftime("%FT%TZ")<cr> --> 
-
-" Tab navigation {{{
-" Open a new tab with \t in normal mode
-nmap <leader>t :tabnew<cr>
+" Limelight just doesn't play well with anything.
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+" Gross work-around for Goyo dumping a bunch of settings on exit.
+autocmd! User GoyoLeave source ~/.vimrc
 " }}}
 " }}}
 
-call pathogen#infect() 
-
+" Editing GPG files
 let g:GPGPrimeAgent = 1
 
-
 " tagbar stuff
-let g:tagbar_ctags_bin = '/snap/bin/universal-ctags.ctags'
-nmap <F8> :TagbarToggle<CR>
+let g:tagbar_ctags_bin = '/snap/bin/universal-ctags'
 
-function! WritemodeEnter()
-  " Color name (:help cterm-colors) or ANSI code
-  let g:limelight_conceal_ctermfg = 'gray'
-  let g:limelight_conceal_ctermfg = 240
-
-  " Color name (:help gui-colors) or RGB color
-  let g:limelight_conceal_guifg = 'DarkGray'
-  let g:limelight_conceal_guifg = '#777777'
-
-  " Default: 0.5
-  let g:limelight_default_coefficient = 0.7
-
-  " Number of preceding/following paragraphs to include (default: 0)
-  let g:limelight_paragraph_span = 1
-
-  " Beginning/end of paragraph
-  "   When there's no empty line between the paragraphs
-  "   and each paragraph starts with indentation
-  let g:limelight_bop = '^\s'
-  let g:limelight_eop = '\ze\n^\s'
-
-  " Highlighting priority (default: 10)
-  "   Set it to -1 not to overrule hlsearch
-  let g:limelight_priority = -1
-  hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-  Limelight
-  Goyo
-  SoftPencil
-  set number
-  set showbreak="↳ "
-endfunction
-
-function! WritemodeLeave()
-  Limelight!
-  Goyo!
-  set nonumber
-  set showbreak=
-  set complete=
-endfunction
-
-command! Writemode call WritemodeEnter()
-command! WritemodeOn call WritemodeEnter()
-command! WritemodeOff call WritemodeLeave()
-
-let java_highlight_java_lang_ids=1
+" Themes {{{
+syntax on
 colo elflord
+
+" Customizations to elflord {{{
 hi  Comment term=bold ctermfg=DarkCyan
 hi  String  term=underline  ctermfg=103
 hi  Operator  ctermfg=204
@@ -217,8 +118,60 @@ hi  Statement term=bold ctermfg=LightGreen
 hi  Conditional term=bold ctermfg=LightGreen
 hi  Repeat  term=bold ctermfg=LightGreen
 hi  Todo  term=standout ctermbg=54  ctermfg=LightCyan
+hi  clear SpellBad
+hi  SpellBad  cterm=underline ctermfg=161
+hi  markdownItalic  cterm=italic ctermfg=Magenta
+hi  LineNr ctermfg=239
+let java_highlight_java_lang_ids=1
+" }}}
+
+" Minimalist tabline and splits {{{
+hi  clear TabLineFill
+hi  clear TabLine
+hi  clear TabLineSel
+hi  TabLineFill cterm=underline ctermfg=239
+hi  TabLine cterm=underline ctermfg=239
+hi  TabLineSel  cterm=underline ctermfg=241 ctermbg=236
+hi  clear VertSplit
+hi  VertSplit ctermfg=239
+set fillchars+=vert:│
+" }}}
+
+" Airline functionality {{{
 let g:airline_powerline_fonts = 1
 let g:airline_theme='kolor'
 let g:airline_section_x = ' %-0.10{strftime("%I:%M %p")}'
+""" vim-airline provides a tabline formatter, but it's too busy for my tastes.
+""" All the same, here's what I was working with before.
+"let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" }}}
+" }}}
+
+" Extra tools {{{
+" Shift-arrow keys to move between splits
+nmap <silent> <S-Up> :wincmd k<CR>
+nmap <silent> <S-Down> :wincmd j<CR>
+nmap <silent> <S-Left> :wincmd h<CR>
+nmap <silent> <S-Right> :wincmd l<CR>
+
+" Set current split to width of 80
+nmap <leader>8 :vertical resize 80<cr>
+
+" Open and close tabs
+nmap <leader>t :tabnew<cr>
+nmap <leader>C :tabclose<cr>
+
+" \f to start NERDTree
+nmap <leader>f :NERDTree<cr>
+
+" F8 for ctags
+nmap <F8> :TagbarToggle<CR>
+
+" \w for writemode
+nmap <silent> <leader>w :Goyo<cr>
+" }}}
 
 " vim: foldmethod=marker ts=2 sw=2 sts=2 tw=79 et
