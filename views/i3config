@@ -199,9 +199,9 @@ exec --no-startup-id xsetroot -solid $darkbg
 #gaps inner 10
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 1%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 1%- #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10.0 # increase screen brightness
