@@ -18,7 +18,7 @@ clone: ~/.dotfiles
 .PHONY: software
 software:
 	sudo apt-add-repository -u ppa:makyo/st
-	sudo apt install fzy silversearcher-ag vim fish golang-go htop jq snapcraft texlive-xetex tf stimmtausch tmux powerline fonts-powerline python-powerline ruby-dev language-pack-eo aspell-eo python3-pip
+	sudo apt install fzy silversearcher-ag vim fish golang-go htop jq snapcraft texlive-xetex tf stimmtausch tmux powerline fonts-powerline python-powerline ruby-dev language-pack-eo aspell-eo python3-pip python-alsaaudio
 	sudo dpkg -i ~/.dotfiles/bootstrap/fd*.deb ~/.dotfiles/bootstrap/lsd*.deb
 	# Ignore errors on this because c'mon, snap...
 	-sudo snap install hugo nextcloud-client universal-ctags
@@ -27,12 +27,14 @@ software:
 	-git clone git@github.com:makyo/sparkleup.git ~/sparkleup
 	cd ~/sparkleup; \
 	git pull origin master
+	sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 .PHONY: x-software
 x-software:
 	sudo apt install i3 firefox atom sparkleshare
 	sudo dpkg -i ~/.dotfiles/bootstrap/light*.deb
 	sudo snap install spotify slack
+	sudo pip install powerline-status-i3
 
 .PHONY: system
 system:
