@@ -3,3 +3,4 @@ extra
 *.sw[op]
 .netrwhist
 *.py[oc]
+editor/vim/bundle/vim-zettel/doc

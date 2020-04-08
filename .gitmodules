@@ -55,3 +55,15 @@
 [submodule "editor/vim/bundle/nerdtree"]
 	path = editor/vim/bundle/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "editor/vim/bundle/vim-zettel"]
+	path = editor/vim/bundle/vim-zettel
+	url = https://github.com/michal-h21/vim-zettel.git
+[submodule "editor/vim/bundle/vimwiki"]
+	path = editor/vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+[submodule "editor/vim/bundle/fzf"]
+	path = editor/vim/bundle/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "editor/vim/bundle/fzf.vim"]
+	path = editor/vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
