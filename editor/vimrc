@@ -101,8 +101,7 @@ autocmd! User GoyoLeave source ~/.vimrc
 
 " Zettelkasten and Vimwiki stuff {{{
 let g:vimwiki_list = [{'path': '~/sparkleup/zk/',
-                      \ 'path_html': '~/sparkleup/zk_html/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+                      \ 'path_html': '~/sparkleup/zk_html/'}]
 let g:zettel_format = "%Y-%m-%d-%title"
 " }}}
 " }}}
