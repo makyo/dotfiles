@@ -67,3 +67,6 @@
 [submodule "editor/vim/bundle/fzf.vim"]
 	path = editor/vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "editor/vim/bundle/calendar.vim"]
+	path = editor/vim/bundle/calendar.vim
+	url = https://github.com/itchyny/calendar.vim
