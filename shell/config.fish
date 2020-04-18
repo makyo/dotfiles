@@ -16,6 +16,7 @@ if status is-interactive
         set -x JUJU_REPOSITORY /home/makyo/work/charms
         set -x LAYER_PATH $JUJU_REPOSITORY/layers
         set -x INTERFACE_PATH $JUJU_REPOSITORY/interfaces
+        set -x VIMWIKI_MARKDOWN_EXTENSIONS markdown_vimwiki
         set -l GPG_AGENT_INFO (gpg-agent -q --daemon 2>&1 | cut -d '=' -f 2 | cut -d ';' -f 1)
         source ~/.config/fish/functions/fish_prompt.fish
         source ~/.config/fish/functions/helpers.fish

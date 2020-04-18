@@ -77,11 +77,11 @@ autocmd FileType go,ledger,make set noet
 autocmd FileType mail,debchangelog set tw=72
 
 " Writing stuff {{{
-autocmd FileType markdown,rst set spell
+autocmd FileType markdown,rst,vimwiki set spell
 
 " Use pencil when writing
 autocmd BufRead,BufNewFile *.md,*.mkd set ft=markdown wrap linebreak
-autocmd FileType tex,markdown SoftPencil
+autocmd FileType tex,markdown,vimwiki SoftPencil
 
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
@@ -101,8 +101,16 @@ autocmd! User GoyoLeave source ~/.vimrc
 
 " Zettelkasten and Vimwiki stuff {{{
 let g:vimwiki_list = [{'path': '~/sparkleup/zk/',
-                      \ 'path_html': '~/sparkleup/zk_html/'}]
-let g:zettel_format = "%Y-%m-%d-%title"
+                      \ 'auto_tags': 1, 'auto_diary_index': 1, 'auto_export': 1,
+                      \ 'path_html': '~/sparkleup/zk_html/',
+                      \ 'template_path': '~/sparkleup/zk_html',
+                      \ 'syntax': 'markdown', 'ext': '.md',
+                      \ 'list_margin': 0,
+                      \ 'nested_syntaxes': {'vimwiki': 'markdown'},
+                      \ 'custom_wiki2html': 'vimwiki_markdown'}]
+let g:vimwiki_auto_chdir = 1
+let g:zettel_format = "%Y-%m-%d-%title-%file_no"
+let g:vimwiki_global_ext = 0
 " }}}
 " }}}
 
