@@ -217,4 +217,3 @@ focus_follows_mouse no
 # startup
 exec --no-startup-id dropbox start
 exec --no-startup-id nextcloud_client
-exec gnome-terminal -- zk
