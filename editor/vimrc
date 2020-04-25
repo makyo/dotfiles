@@ -111,6 +111,7 @@ let g:vimwiki_list = [{'path': '~/sparkleup/zk/',
 let g:vimwiki_auto_chdir = 1
 let g:zettel_format = "%Y-%m-%d-%title-%file_no"
 let g:vimwiki_global_ext = 0
+let g:vimwiki_use_calendar = 1
 " }}}
 " }}}
 
