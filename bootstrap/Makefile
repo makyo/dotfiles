@@ -18,7 +18,7 @@ clone: ~/.dotfiles
 .PHONY: software
 software:
 	sudo apt-add-repository -u ppa:makyo/st
-	sudo apt install fzy silversearcher-ag vim fish golang-go htop jq snapcraft texlive-xetex tf stimmtausch tmux powerline fonts-powerline python-powerline ruby-dev language-pack-eo aspell-eo python3-pip python-alsaaudio fzf
+	sudo apt install fzy silversearcher-ag vim fish golang-go htop jq snapcraft texlive-xetex tf stimmtausch tmux powerline fonts-powerline python-powerline ruby-dev language-pack-eo aspell-eo python3-pip python-alsaaudio fzf vit taskwarrior python3-powerline-taskwarrior hledger hledger-ui
 	sudo dpkg -i ~/.dotfiles/bootstrap/fd*.deb ~/.dotfiles/bootstrap/lsd*.deb
 	# Ignore errors on this because c'mon, snap...
 	-sudo snap install hugo universal-ctags
@@ -31,7 +31,7 @@ software:
 
 .PHONY: x-software
 x-software:
-	sudo apt install i3 firefox atom sparkleshare
+	sudo apt install i3 firefox atom sparkleshare hledger-web
 	sudo dpkg -i ~/.dotfiles/bootstrap/light*.deb
 	sudo snap install spotify slack nextcloud-client
 	sudo pip install powerline-status-i3
