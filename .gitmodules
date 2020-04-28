@@ -70,3 +70,6 @@
 [submodule "editor/vim/bundle/vimmtausch"]
 	path = editor/vim/bundle/vimmtausch
 	url = https://github.com/makyo/stimmtausch.vim
+[submodule "editor/vim/bundle/Colorizer"]
+	path = editor/vim/bundle/Colorizer
+	url = https://github.com/chrisbra/Colorizer
