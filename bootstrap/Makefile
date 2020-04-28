@@ -81,6 +81,8 @@ link-bin:
 link-extra:
 	-ln -s ~/.dotfiles/git/config ~/.gitconfig
 	-ln -s ~/.dotfiles/fd/fdignore ~/.fdignore
+	-ln -s ~/.dotfiles/taskwarrior/taskrc ~/.taskrc
+	-ln -s ~/.dotfiles/taskwarrior/vit ~/.vit
 
 .PHONY: x-link
 x-link: link x-link-editor x-link-views
