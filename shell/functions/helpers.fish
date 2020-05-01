@@ -50,3 +50,13 @@ function wmuck
             end
     end
 end
+
+function defmux
+    tmux \
+        new-session -s defmux \; \
+        send-keys 'zk' C-m \; \
+        split-window -h -p 25 \; \
+        send-keys 'vit' C-m \; \
+        split-window -p 33 \; \
+        send-keys 'hledger-ui --theme=terminal -T' C-m
+end
