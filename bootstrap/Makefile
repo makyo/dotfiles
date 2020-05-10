@@ -21,7 +21,7 @@ software:
 	sudo apt install fzy silversearcher-ag vim fish golang-go htop jq snapcraft texlive-xetex tf stimmtausch tmux powerline fonts-powerline python-powerline ruby-dev language-pack-eo aspell-eo python3-pip python-alsaaudio fzf vit taskwarrior python3-powerline-taskwarrior hledger hledger-ui
 	sudo dpkg -i ~/.dotfiles/bootstrap/fd*.deb ~/.dotfiles/bootstrap/lsd*.deb
 	# Ignore errors on this because c'mon, snap...
-	-sudo snap install hugo universal-ctags
+	-sudo snap install hugo universal-ctags nvim
 	sudo pip3 install tv2 powerline-shell thefuck
 	sudo gem install jekyll bundler
 	-git clone git@github.com:makyo/sparkleup.git ~/sparkleup
@@ -67,6 +67,8 @@ link-chat:
 link-editor:
 	-ln -s ~/.dotfiles/editor/vimrc ~/.vimrc
 	-ln -s ~/.dotfiles/editor/vim ~/.vim
+	mkdir -p ~/.config/nvim
+	-ln -s ~/.dotfiles/editor/init.vim ~/.config/nvim
 
 .PHONY: link-views
 link-views:

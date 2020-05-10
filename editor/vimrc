@@ -24,10 +24,6 @@ set visualbell
 set t_vb=
 " }}}
 
-" Syncing the swapfile makes for slow responses with NFS or with a spun-down
-" hard disk.  Let the system decide when to sync.
-set swapsync=
-
 " }}}
 
 " Load plugins
