@@ -1,5 +1,5 @@
 .PHONY: all
-all: submodules software system link
+all: submodules software system backups link
 
 .PHONY: x
 x: all x-software x-link
@@ -40,6 +40,12 @@ x-software:
 system:
 	sudo update-locale LANG=eo.utf-8 LANGUAGE=eo:en_US
 
+.PHONY: backups
+backups:
+	mkdir -p ~/sparkleup
+	-ln -s ~/.dotfiles/backups/sparkleup
+	~/.dotfiles/backups/sparkleup/projects/init
+
 .PHONY: link
 link: link-shell link-chat link-editor link-views link-bin link-extra
 
@@ -69,6 +75,8 @@ link-editor:
 	-ln -s ~/.dotfiles/editor/vim ~/.vim
 	mkdir -p ~/.config/nvim
 	-ln -s ~/.dotfiles/editor/init.vim ~/.config/nvim
+	sudo snap alias nvim vi
+	sudo snap alias nvim vim
 
 .PHONY: link-views
 link-views:
