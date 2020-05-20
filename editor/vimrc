@@ -119,7 +119,8 @@ let g:vimwiki_use_calendar = 1
 let g:stimmtausch = {'worlds': [
                     \ {'name': 'Taps: Makyo', 'dir': '~/.local/share/stimmtausch/taps_makyo'},
                     \ {'name': 'Taps: Maddy', 'dir': '~/.local/share/stimmtausch/taps_maddy'},
-                    \ {'name': 'SPR: Ephah',  'dir': '~/.local/share/stimmtausch/spr_ephah'}]}
+                    \ {'name': 'SPR: Ephah',  'dir': '~/.local/share/stimmtausch/spr_ephah'},
+                    \ {'name': 'Furry: Maddy', 'dir': '~/.local/share/stimmtausch/furry_maddy'}]}
 nmap <silent> <Leader>st :call Stimmtausch()<CR>
 " Editing GPG files
 let g:GPGPrimeAgent = 1
