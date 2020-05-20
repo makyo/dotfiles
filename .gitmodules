@@ -73,3 +73,12 @@
 [submodule "editor/vim/bundle/Colorizer"]
 	path = editor/vim/bundle/Colorizer
 	url = https://github.com/chrisbra/Colorizer
+[submodule "editor/vim/bundle/vim-gnupg"]
+	path = editor/vim/bundle/vim-gnupg
+	url = https://github.com/jamessan/vim-gnupg
+[submodule "editor/vim/bundle/vim-gitgutter"]
+	path = editor/vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "editor/vim/bundle/vim-fugitive"]
+	path = editor/vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive

@@ -1,5 +1,5 @@
 .PHONY: all
-all: submodules software system link
+all: submodules software system backups link
 
 .PHONY: x
 x: all x-software x-link
@@ -21,7 +21,7 @@ software:
 	sudo apt install fzy silversearcher-ag vim fish golang-go htop jq snapcraft texlive-xetex tf stimmtausch tmux powerline fonts-powerline python-powerline ruby-dev language-pack-eo aspell-eo python3-pip python-alsaaudio fzf vit taskwarrior python3-powerline-taskwarrior hledger hledger-ui
 	sudo dpkg -i ~/.dotfiles/bootstrap/fd*.deb ~/.dotfiles/bootstrap/lsd*.deb
 	# Ignore errors on this because c'mon, snap...
-	-sudo snap install hugo universal-ctags
+	-sudo snap install hugo universal-ctags nvim
 	sudo pip3 install tv2 powerline-shell thefuck
 	sudo gem install jekyll bundler
 	-git clone git@github.com:makyo/sparkleup.git ~/sparkleup
@@ -39,6 +39,12 @@ x-software:
 .PHONY: system
 system:
 	sudo update-locale LANG=eo.utf-8 LANGUAGE=eo:en_US
+
+.PHONY: backups
+backups:
+	mkdir -p ~/sparkleup
+	-ln -s ~/.dotfiles/backups/sparkleup
+	~/.dotfiles/backups/sparkleup/projects/init
 
 .PHONY: link
 link: link-shell link-chat link-editor link-views link-bin link-extra
@@ -67,6 +73,10 @@ link-chat:
 link-editor:
 	-ln -s ~/.dotfiles/editor/vimrc ~/.vimrc
 	-ln -s ~/.dotfiles/editor/vim ~/.vim
+	mkdir -p ~/.config/nvim
+	-ln -s ~/.dotfiles/editor/init.vim ~/.config/nvim
+	sudo snap alias nvim vi
+	sudo snap alias nvim vim
 
 .PHONY: link-views
 link-views:

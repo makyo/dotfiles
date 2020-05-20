@@ -7,7 +7,7 @@ function fa
 end
 
 function zk
-    vim -c VimwikiIndex
+    vi -c VimwikiIndex
 end
 
 if command lsd --version > /dev/null 2>&1
@@ -49,4 +49,14 @@ function wmuck
                 false
             end
     end
+end
+
+function defmux
+    tmux \
+        new-session -s defmux \; \
+        send-keys 'zk' C-m \; \
+        split-window -h -p 25 \; \
+        send-keys 'vit' C-m \; \
+        split-window -p 33 \; \
+        send-keys 'hledger-ui --theme=terminal -T' C-m
 end

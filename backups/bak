@@ -1,0 +1,6 @@
+#!/bin/bash
+
+bakdate=`date +%Y-%m-%d`
+export BORG_SSH="ssh -i ~/.dotfiles/private-dotfiles/keys/backup"
+ssh-add ~/.ssh/backup
+borg create makyo@backups.securesys.io:/home/makyo/backups::$date ~/sparkleup ~/nextcloud ~/work
