@@ -82,3 +82,6 @@
 [submodule "editor/vim/bundle/vim-fugitive"]
 	path = editor/vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "editor/vim/bundle/elm-vim"]
+	path = editor/vim/bundle/elm-vim
+	url = https://github.com/ElmCast/elm-vim

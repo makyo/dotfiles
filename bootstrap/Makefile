@@ -86,6 +86,7 @@ link-views:
 link-bin:
 	mkdir -p ~/bin
 	-ln -s ~/.dotfiles/editor/vim/plugin/find-or-git ~/bin/
+	-ln -s ~/.dotfiles/editor/vim/plugin/vwmd ~/bin/
 
 .PHONY: link-extra
 link-extra:

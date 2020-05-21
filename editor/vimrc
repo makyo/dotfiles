@@ -104,7 +104,7 @@ let g:vimwiki_list = [{'path': '~/sparkleup/zk/',
                       \ 'syntax': 'markdown', 'ext': '.md',
                       \ 'list_margin': 0,
                       \ 'nested_syntaxes': {'vimwiki': 'markdown'},
-                      \ 'custom_wiki2html': 'vimwiki_markdown'}]
+                      \ 'custom_wiki2html': 'vwmd'}]
 let g:vimwiki_auto_chdir = 1
 let g:zettel_format = "%Y-%m-%d-%title-%file_no"
 let g:vimwiki_global_ext = 0
@@ -117,6 +117,7 @@ let g:stimmtausch = {'worlds': [
                     \ {'name': 'Taps: Makyo', 'dir': '~/.local/share/stimmtausch/taps_makyo'},
                     \ {'name': 'Taps: Maddy', 'dir': '~/.local/share/stimmtausch/taps_maddy'},
                     \ {'name': 'SPR: Ephah',  'dir': '~/.local/share/stimmtausch/spr_ephah'},
+                    \ {'name': 'Furocity: Mina', 'dir': '~/.local/share/stimmtausch/furocity_mina'},
                     \ {'name': 'Furry: Maddy', 'dir': '~/.local/share/stimmtausch/furry_maddy'}]}
 nmap <silent> <Leader>st :call Stimmtausch()<CR>
 " Editing GPG files
