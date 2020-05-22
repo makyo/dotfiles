@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e
+
+echo "Creating the keypair to be used by sparkleup..."
+echo
+
+ssh-keygen -b 4096 -C sparkleup@$(hostname) -N "" -f $(dirname $0)/key || { echo "Failed generating keypair, bailing..."; exit 1; }
+
+cat <<EOF
+
+SSH key has been created! Keep it safe, just as you would with any SSH keypair.
+
+If you're running your own SparkleShare host, you'll need to add it:
+
+    dazzle link
+
+Paste the contents of $(dirname $0)/key.pub when promted.
+
+If you're not running your own SparkleShare host, you'll still need to add
+this key to that git service (e.g: GitHub, Gitea, etc)
+
+Now you can create a project with:
+
+    $(dirname $0)/create-project <project_dir>
+
+Enjoy!
+EOF

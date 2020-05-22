@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -e
+ssh -i ~/.dotfiles/private-dotfiles/keys/sparkleup $@

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+### First do zk
+
+# Move to the project directory and log where we are.
+cd /home/makyo/sparkleup/zk
+pwd
+
+# Set our SSH script.
+export GIT_SSH=/home/makyo/sparkleup/sparkleup/sparkleup-ssh
+
+# Pull any recent changes.
+git pull origin master
+
+# Push our updates.
+git add .
+git commit -am "update from sparkleup"
+git push origin master
+
+### Then build the HTML site
+# XXX AFAICT this doesn't actually work??? Sigh
+# echo "Building Zettelkasten HTML..."
+# ex -s -c VimwikiIndex -c VimwikiAll2HTML -c :q
+
+### Now do zk_html
+
+# Move to the project directory and log where we are.
+cd /home/makyo/sparkleup/zk_html
+pwd
+
+# Set our SSH script.
+export GIT_SSH=/home/makyo/sparkleup/sparkleup/sparkleup-ssh
+
+# Pull any recent changes.
+git pull origin master
+
+# Push our updates.
+git add .
+git commit -am "update from sparkleup"
+git push origin master
