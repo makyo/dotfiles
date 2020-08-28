@@ -57,6 +57,9 @@ style = "underline 38"
 style = "underline 139"
 prefix = "in "
 
+[cmd_duration]
+style = "yellow"
+
 [character]
 style_success = "bold 77"
 style_failure = "bold 161"
