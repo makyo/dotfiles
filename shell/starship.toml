@@ -59,7 +59,7 @@ prefix = "in "
 
 [character]
 style_success = "bold 77"
-style_failure = "bold 167"
+style_failure = "bold 161"
 symbol = ""
 vicmd_symbol = ""
 
@@ -112,6 +112,9 @@ staged.value = "  "
 staged.style = "green"
 stashed.value = "  "
 stashed.style = "white"
+ahead = " ⇡ "
+diverged = " ⇕ "
+behind = " ⇣ "
 prefix = "["
 suffix = " ] "
 
