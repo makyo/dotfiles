@@ -141,6 +141,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+Shift+t exec "i3-nagbar -t warning -m 'Quick tea break!' --font 'pango:Ubuntu 15'"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -201,9 +203,9 @@ exec --no-startup-id xsetroot -solid $darkbg
 #gaps inner 10
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume `pactl list sinks short|grep RUNNING|awk '{print $1}'` +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume `pactl list sinks short|grep RUNNING|awk '{print $1}'` -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute `pactl list sinks short|grep RUNNING|aw '{print $1'` toggle
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10.0 # increase screen brightness
@@ -219,3 +221,4 @@ focus_follows_mouse no
 # startup
 exec --no-startup-id dropbox start
 exec --no-startup-id nextcloud_client
+exec --no-startup-id gxkb

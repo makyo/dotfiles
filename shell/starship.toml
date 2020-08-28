@@ -1,0 +1,117 @@
+prompt_order = [
+    "env_var",
+    "battery",
+    "time",
+    "username",
+    "hostname",
+    "kubernetes",
+    "directory",
+    "git_branch",
+    "git_commit",
+    "git_state",
+    "git_status",
+    "hg_branch",
+    "docker_context",
+    #"package",
+    #"dotnet",
+    #"elixir",
+    #"elm",
+    #"erlang",
+    #"golang",
+    #"java",
+    #"julia",
+    #"nim",
+    #"nodejs",
+    #"ocaml",
+    #"php",
+    #"purescript",
+    #"python",
+    #"ruby",
+    #"rust",
+    #"terraform",
+    #"zig",
+    #"nix_shell",
+    #"conda",
+    "memory_usage",
+    "aws",
+    "crystal",
+    "cmd_duration",
+    "custom",
+    "line_break",
+    "jobs",
+    "character",
+]
+
+[env_var]
+variable = "STARSHIP_SHELL"
+
+[username]
+show_always = true
+style_user = "underline 35"
+
+[hostname]
+ssh_only = false
+style = "underline 38"
+
+[directory]
+style = "underline 139"
+prefix = "in "
+
+[character]
+style_success = "bold 77"
+style_failure = "bold 167"
+symbol = ""
+vicmd_symbol = ""
+
+[time]
+style = "underline 139"
+suffix = ""
+disabled = false
+
+[battery]
+discharging_symbol = "⇣ "
+charging_symbol = "⇡ "
+full_symbol = "• "
+
+[[battery.display]]
+threshold = 100
+style = "green"
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "yellow"
+
+[golang]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[git_branch]
+style = "underline 149"
+
+[git_status]
+separator = "|"
+style = "bold 250"
+modified_count.enabled = true
+modified_count.style = "yellow"
+modified.value = " ✎ "
+modified.style = "yellow"
+untracked.value = "  "
+untracked.style = "161"
+untracked_count.enabled= true
+untracked_count.style = "161"
+staged.value = "  "
+staged.style = "green"
+stashed.value = "  "
+stashed.style = "white"
+prefix = "["
+suffix = " ] "
+

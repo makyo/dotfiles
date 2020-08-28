@@ -7,7 +7,7 @@
     "virtual_env", 
     "username", 
     "hostname", 
-    "cwd", 
+    "cwd",
     "git", 
     "hg", 
     "jobs", 
@@ -19,6 +19,9 @@
   },
   "battery": {
     "directory_warning": false
+  },
+  "cwd": {
+    "max_depth": 4
   },
   "theme": "~/.config/powerline-shell/theme.py"
 }

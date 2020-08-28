@@ -192,6 +192,9 @@ nmap <F8> :TagbarToggle<CR>
 
 " \w for writemode
 nmap <silent> <leader>w :Goyo<cr>
+
+" \/ for clearing highlighting search terms
+nmap <silent> <leader>/ :noh<cr>
 " }}}
 
 " vim: foldmethod=marker ts=2 sw=2 sts=2 tw=79 et

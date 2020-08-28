@@ -60,3 +60,7 @@ function defmux
         split-window -p 33 \; \
         send-keys 'hledger-ui --theme=terminal -T' C-m
 end
+
+function vitree
+    vi -c :NERDTree
+end
