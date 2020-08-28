@@ -1,4 +1,4 @@
-if status is-interactive
+if status is-interactive > /dev/null
         set fish_key_bindings fish_vi_key_bindings
         set -x GOPATH "/home/makyo/work/go"
         set -x PATH $PATH ~/bin

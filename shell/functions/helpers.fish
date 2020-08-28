@@ -19,6 +19,12 @@ if command lsd --version > /dev/null 2>&1
     end
 end
 
+if test "$HOME" = "/Users/makyo"
+    function vi
+        nvim $argv
+    end
+end
+
 function muck
     if test -z "$MUCK"
         echo "No MUCK set! Set MUCK env var first"

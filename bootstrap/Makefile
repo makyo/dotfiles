@@ -23,7 +23,7 @@ software:
 	# Ignore errors on this because c'mon, snap...
 	-sudo snap install hugo universal-ctags nvim
 	-sudo snap install stimmtausch --channel=edge
-	sudo pip3 install tv2 powerline-shell thefuck
+	sudo pip3 install tv2 powerline-shell thefuck vimwiki_markdown markdown_vimwiki markdown_editing markdown_verse
 	sudo gem install jekyll bundler
 	-git clone git@github.com:makyo/sparkleup.git ~/sparkleup
 	cd ~/sparkleup; \
@@ -77,8 +77,9 @@ link-editor:
 	-ln -sf ~/dotfiles/editor/vim ~/.vim
 	mkdir -p ~/.config/nvim
 	-ln -sf ~/dotfiles/editor/init.vim ~/.config/nvim
-	sudo snap alias nvim vi
-	sudo snap alias nvim vim
+	# Test for snap first in case we did earlier steps by hand without
+	command -v snap || sudo snap alias nvim vi
+	command -v snap || sudo snap alias nvim vim
 
 .PHONY: link-views
 link-views:
