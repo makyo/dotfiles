@@ -1,61 +1,64 @@
-prompt_order = [
-    "env_var",
-    "battery",
-    "time",
-    "username",
-    "hostname",
-    "kubernetes",
-    "directory",
-    "git_branch",
-    "git_commit",
-    "git_state",
-    "git_status",
-    "hg_branch",
-    "docker_context",
-    #"package",
-    #"dotnet",
-    #"elixir",
-    #"elm",
-    #"erlang",
-    #"golang",
-    #"java",
-    #"julia",
-    #"nim",
-    #"nodejs",
-    #"ocaml",
-    #"php",
-    #"purescript",
-    #"python",
-    #"ruby",
-    #"rust",
-    #"terraform",
-    #"zig",
-    #"nix_shell",
-    #"conda",
-    "memory_usage",
-    "aws",
-    "crystal",
-    "cmd_duration",
-    "custom",
-    "line_break",
-    "jobs",
-    "character",
-]
+format = """\
+    $env_var\
+    $battery\
+    $time\
+    $username\
+    $hostname\
+    $kubernetes\
+    $directory\
+    $git_branch\
+    $git_commit\
+    $git_state\
+    $git_status\
+    $hg_branch\
+    $docker_context\
+    $memory_usage\
+    $aws\
+    $crystal\
+    $cmd_duration\
+    $custom\
+    $line_break\
+    $jobs\
+    $character\
+"""
+    #$package\
+    #$dotnet\
+    #$elixir\
+    #$elm\
+    #$erlang\
+    #$golang\
+    #$java\
+    #$julia\
+    #$nim\
+    #$nodejs\
+    #$ocaml\
+    #$php\
+    #$purescript\
+    #$python\
+    #$ruby\
+    #$rust\
+    #$terraform\
+    #$zig\
+    #$nix_shell\
+    #$conda\
 
 [env_var]
 variable = "STARSHIP_SHELL"
+format = "[$env_value]($style) "
 
 [username]
 show_always = true
+format = "via [$user]($style) "
 style_user = "underline 35"
 
 [hostname]
 ssh_only = false
 style = "underline 38"
+format = "on [$hostname]($style) "
 
 [directory]
 style = "underline 139"
-prefix = "in "
+format = "in [$path]($style)[$read_only]($read_only_style) "
 
 [cmd_duration]
 style = "yellow"
@@ -68,7 +71,7 @@ vicmd_symbol = ""
 
 [time]
 style = "underline 139"
-suffix = ""
+format = "at [$time]($style) "
 disabled = false
 
 [battery]
@@ -103,21 +106,10 @@ style = "underline 149"
 [git_status]
 separator = "|"
 style = "bold 250"
-modified_count.enabled = true
-modified_count.style = "yellow"
-modified.value = " ✎ "
-modified.style = "yellow"
-untracked.value = "  "
-untracked.style = "161"
-untracked_count.enabled= true
-untracked_count.style = "161"
-staged.value = "  "
-staged.style = "green"
-stashed.value = "  "
-stashed.style = "white"
+modified = "[$count ✎](yellow) "
+untracked = "[$count ](161) "
+staged = " [$count ](green) "
 ahead = " ⇡ "
 diverged = " ⇕ "
 behind = " ⇣ "
-prefix = "["
-suffix = " ] "
-
+format = '([\[ $all_status$ahead_behind\]]($style) )'
