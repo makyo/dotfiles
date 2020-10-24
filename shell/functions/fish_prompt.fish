@@ -1,7 +1,7 @@
-function fish_prompt
-    #powerline-shell --shell bare $status
-    starship init fish | source
-end
+#function fish_prompt
+#    #powerline-shell --shell bare $status
+#    starship init fish | source
+#end
 
 function fish_prompt_old --description 'Write out the prompt'
 	

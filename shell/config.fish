@@ -20,6 +20,7 @@ if status is-interactive > /dev/null
         set -l GPG_AGENT_INFO (gpg-agent -q --daemon 2>&1 | cut -d '=' -f 2 | cut -d ';' -f 1)
         source ~/.config/fish/functions/fish_prompt.fish
         source ~/.config/fish/functions/helpers.fish
+        starship init fish | source
 end
 
 thefuck --alias | source

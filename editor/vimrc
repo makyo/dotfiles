@@ -159,7 +159,8 @@ set fillchars+=vert:│
 
 " Airline functionality {{{
 let g:airline_powerline_fonts = 1
-let g:airline_theme='kolor'
+let g:airline_theme='maddypaws'
+let g:airline_minimalist_showmod=1
 hi  SignColumn ctermbg=None
 """ vim-airline provides a tabline formatter, but it's too busy for my tastes.
 """ All the same, here's what I was working with before.
