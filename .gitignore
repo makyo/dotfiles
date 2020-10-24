@@ -4,3 +4,4 @@ extra
 .netrwhist
 *.py[oc]
 editor/vim/bundle/vim-zettel/doc
+.nvimlog
