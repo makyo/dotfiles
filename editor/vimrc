@@ -142,6 +142,7 @@ hi  clear SpellBad
 hi  SpellBad  cterm=underline ctermfg=161
 hi  markdownItalic  cterm=italic ctermfg=Magenta
 hi  LineNr ctermfg=239
+hi  NonText ctermfg=239
 let java_highlight_java_lang_ids=1
 " }}}
 

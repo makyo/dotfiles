@@ -29,7 +29,7 @@ function! airline#themes#{s:theme}#refresh()
         let ER = [ N2[0], '#D75F5F', N2[2], 16 ]
 
         " Warning
-        let WI = [ N2[0], '#FFAF5F', N2[2], 17 ]
+        let WI = N1 " [ N2[0], '#FFAF5F', 25, 0 ]
     else
         " Normal
         let N1 = [ 'gray30', 'gray70', 235, 249 ]
