@@ -143,6 +143,7 @@ hi  SpellBad  cterm=underline ctermfg=161
 hi  markdownItalic  cterm=italic ctermfg=Magenta
 hi  LineNr ctermfg=239
 hi  NonText ctermfg=239
+hi  Search cterm=italic,bold ctermfg=232 ctermbg=60
 let java_highlight_java_lang_ids=1
 " }}}
 
@@ -151,8 +152,8 @@ hi  clear TabLineFill
 hi  clear TabLine
 hi  clear TabLineSel
 hi  TabLineFill cterm=underline ctermfg=239
-hi  TabLine cterm=underline ctermfg=239
-hi  TabLineSel  cterm=underline ctermfg=241 ctermbg=236
+hi  TabLine cterm=underline ctermfg=242
+hi  TabLineSel  cterm=underline ctermfg=241 ctermbg=235
 hi  clear VertSplit
 hi  VertSplit ctermfg=239
 set fillchars+=vert:│
@@ -162,6 +163,9 @@ set fillchars+=vert:│
 let g:airline_powerline_fonts = 1
 let g:airline_theme='maddypaws'
 let g:airline_minimalist_showmod=1
+let g:airline#extensions#battery#enabled=1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 hi  SignColumn ctermbg=None
 """ vim-airline provides a tabline formatter, but it's too busy for my tastes.
 """ All the same, here's what I was working with before.

@@ -14,30 +14,32 @@ let s:want_showmod = get(g:, 'airline_minimalist_showmod', 0)
 function! airline#themes#{s:theme}#refresh()
     if &background == "dark"
         " Normal
-        let N1 = [ '#E4E4E4', '#3A3A3A', 240, 0 ]
-        let N2 = [ '#E4E4E4', '#4E4E4E', 254, 235 ]
-        let N3 = [ '#EEEEEE', '#262626', 240, 0 ]
-        let I1 = [ '#E4E4E4', '#3A3A3A', 62, 0 ]
-        let M1 = [ '#E4E4E4', '#3A3A3A', 22, 0 ]
-        let R1 = [ '#E4E4E4', '#3A3A3A', 132, 0 ]
+        let N1 = [ '#E4E4E4', '#3A3A3A', 242, 'NONE' ]
+
+        " Insert
+        let I1 = [ '#E4E4E4', '#3A3A3A', 68, 'NONE' ]
+
+        " Modified
+        let M1 = [ '#E4E4E4', '#3A3A3A', 23, 'NONE' ]
+        
+        " Replace
+        let R1 = [ '#E4E4E4', '#3A3A3A', 132, 'NONE' ]
 
         " Inactive
-        let IA = [ '#666666', N3[1], 242, N3[3] ]
+        let IA = [ '#666666', N1[1], 242, N1[3] ]
 
         " Error
         " let ER = [ '#1C1C1C', '#D75F5F', 234, 167 ]
-        let ER = [ N2[0], '#D75F5F', N2[2], 16 ]
+        let ER = [ N1[0], '#D75F5F', N1[2], 16 ]
 
         " Warning
-        let WI = N1 " [ N2[0], '#FFAF5F', 25, 0 ]
+        let WI = N1 " [ N1[0], '#FFAF5F', 25, 0 ]
     else
         " Normal
         let N1 = [ 'gray30', 'gray70', 235, 249 ]
-        let N2 = [ 'gray20', 'gray60', 233, 246 ]
-        let N3 = [ 'gray20', 'gray80', 233, 251 ]
 
         " Inactive
-        let IA = [ 'gray15', N3[1], 244, N3[3] ]
+        let IA = [ 'gray15', N1[1], 244, N1[3] ]
 
         " Error
         let ER = [ '#1C1C1C', '#D75F5F', 234, 167 ]
@@ -50,22 +52,22 @@ function! airline#themes#{s:theme}#refresh()
     let TE = [ ER[0], N1[1], N1[2], N1[3] ]
 
     " Reverse
-    let NR = [ N2[1], N2[0], N2[3], N2[2], 'bold' ]
+    let NR = [ N1[1], N1[0], N1[3], N1[2], 'bold' ]
 
 
     let palette = {}
 
-    let palette.normal = airline#themes#generate_color_map(N1, N2, N3)
+    let palette.normal = airline#themes#generate_color_map(N1, N1, N1)
     let palette.normal.airline_error   = ER
     let palette.normal.airline_warning = WI
     let palette.normal.airline_term    = TE
 
-    let palette.insert   = airline#themes#generate_color_map(I1, N2, N3)
+    let palette.insert   = airline#themes#generate_color_map(I1, I1, I1)
     let palette.insert.airline_error   = ER
     let palette.insert.airline_warning = WI
     let palette.insert.airline_term    = TE
     
-    let palette.replace   = airline#themes#generate_color_map(R1, N2, N3)
+    let palette.replace   = airline#themes#generate_color_map(R1, R1, R1)
     let palette.replace.airline_error   = ER
     let palette.replace.airline_warning = WI
     let palette.replace.airline_term    = TE
@@ -78,7 +80,7 @@ function! airline#themes#{s:theme}#refresh()
     let palette.commandline = palette.inactive
 
     if s:want_showmod
-        let palette.normal_modified = airline#themes#generate_color_map(M1, N2, M1)
+        let palette.normal_modified = airline#themes#generate_color_map(M1, N1, M1)
         let palette.normal_modified.airline_error   = ER
         let palette.normal_modified.airline_warning = WI
         let palette.normal_modified.airline_term    = TE
@@ -93,7 +95,7 @@ function! airline#themes#{s:theme}#refresh()
 
     " CtrlP
     if get(g:, 'loaded_ctrlp', 0)
-        let palette.ctrlp = airline#extensions#ctrlp#generate_color_map(N3, N2, NR)
+        let palette.ctrlp = airline#extensions#ctrlp#generate_color_map(N1, N1, NR)
     endif
 
     let g:airline#themes#{s:theme}#palette = palette
