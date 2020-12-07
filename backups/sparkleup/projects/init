@@ -2,8 +2,8 @@
 
 export GIT_SSH="ssh -i ~/.dotfiles/private-dotfiles/keys/sparkleup"
 cd ~/sparkleup
-git clone --depth 1 gitea@makyo.dev:makyo/hybrid
-git clone --depth 1 gitea@makyo.dev:makyo/logs
+#git clone --depth 1 gitea@makyo.dev:makyo/hybrid
+#git clone --depth 1 gitea@makyo.dev:makyo/logs
 git clone --depth 1 gitea@makyo.dev:makyo/notes
 git clone --depth 1 gitea@makyo.dev:makyo/task
 git clone --depth 1 gitea@makyo.dev:makyo/zk

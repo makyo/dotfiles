@@ -159,6 +159,10 @@ hi  VertSplit ctermfg=239
 set fillchars+=vert:│
 " }}}
 
+" Vimade for fading inactive splits
+let g:vimade = {}
+let g:vimade.enablesigns = 1
+
 " Airline functionality {{{
 let g:airline_powerline_fonts = 1
 let g:airline_theme='maddypaws'

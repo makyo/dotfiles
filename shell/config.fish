@@ -2,6 +2,9 @@ if status is-interactive > /dev/null
         set fish_key_bindings fish_vi_key_bindings
         set -x GOPATH "/home/makyo/work/go"
         set -x PATH $PATH ~/bin
+        if test -d /usr/local/opt/python/libexec/bin
+            set -x PATH /usr/local/opt/python/libexec/bin $PATH
+        end
         if test -d $GOPATH/bin
                 set -x PATH $PATH $GOPATH/bin
         end
@@ -23,4 +26,5 @@ if status is-interactive > /dev/null
         starship init fish | source
 end
 
+starship init fish | source
 thefuck --alias | source

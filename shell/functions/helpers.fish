@@ -19,11 +19,11 @@ if command lsd --version > /dev/null 2>&1
     end
 end
 
-if test "$HOME" = "/Users/makyo"
-    function vi
-        nvim $argv
-    end
-end
+# if test (uname) = "Darwin"
+#     function vi
+#         nvim $argv
+#     end
+# end
 
 function muck
     if test -z "$MUCK"
@@ -67,6 +67,6 @@ function defmux
         send-keys 'hledger-ui --theme=terminal -T' C-m
 end
 
-function vitree
+function vt
     vi -c :NERDTree
 end

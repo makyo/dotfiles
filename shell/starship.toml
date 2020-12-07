@@ -106,7 +106,7 @@ style = "underline 149"
 [git_status]
 separator = "|"
 style = "bold 250"
-modified = "[$count ✎ ](yellow) "
+modified = "[$count ✎](yellow) "
 untracked = "[$count ](161) "
 staged = "[$count ](green) "
 stashed = "[](cyan) "
