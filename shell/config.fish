@@ -18,9 +18,11 @@ if status is-interactive > /dev/null
         set -x INTERFACE_PATH $JUJU_REPOSITORY/interfaces
         set -x VIMWIKI_MARKDOWN_EXTENSIONS markdown_vimwiki,markdown_verse,markdown_editing,toc,wikilinks,extra,smarty
         set -l GPG_AGENT_INFO (gpg-agent -q --daemon 2>&1 | cut -d '=' -f 2 | cut -d ';' -f 1)
-        source ~/.config/fish/functions/fish_prompt.fish
         source ~/.config/fish/functions/helpers.fish
         starship init fish | source
+        if setxkbmap > /dev/null
+            setxkbmap -option compose:caps
+        end
 end
 
 thefuck --alias | source

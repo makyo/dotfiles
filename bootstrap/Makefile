@@ -17,8 +17,8 @@ clone: ~/dotfiles
 
 .PHONY: software
 software:
-	sudo apt-add-repository -u ppa:makyo/st
-	sudo apt install fzy silversearcher-ag vim fish golang-go htop jq snapcraft texlive-xetex tf tmux powerline fonts-powerline python-powerline ruby-dev language-pack-eo aspell-eo python3-pip python-alsaaudio fzf vit taskwarrior python3-powerline-taskwarrior hledger hledger-ui
+	#sudo apt-add-repository -u ppa:makyo/st
+	sudo apt install fzy silversearcher-ag vim fish golang-go htop jq snapcraft texlive-xetex tf tmux powerline fonts-powerline python3-powerline ruby-dev language-pack-eo aspell-eo python3-pip python3-alsaaudio fzf vit taskwarrior python3-powerline-taskwarrior hledger hledger-ui curl mosh
 	sudo dpkg -i ~/dotfiles/bootstrap/fd*.deb ~/dotfiles/bootstrap/lsd*.deb
 	# Ignore errors on this because c'mon, snap...
 	-sudo snap install hugo universal-ctags nvim
@@ -33,9 +33,10 @@ software:
 
 .PHONY: x-software
 x-software:
-	sudo apt install i3 firefox atom sparkleshare hledger-web
+	sudo apt install i3 firefox  sparkleshare hledger-web scrot musescore3
 	sudo dpkg -i ~/dotfiles/bootstrap/light*.deb
-	sudo snap install spotify slack nextcloud-client
+	# sudo snap install spotify slack nextcloud-client
+	sudo snap install spotify
 	sudo pip install powerline-status-i3
 
 .PHONY: system
@@ -109,7 +110,8 @@ x-link-editor:
 .PHONY: x-link-views
 x-link-views:
 	mkdir -p ~/.config/i3
-	-ln -sf ~/dotfiles/views/i3* ~/.config/i3/
+	-ln -sf ~/dotfiles/views/i3config ~/.config/i3/config
+	-ln -sf ~/dotfiles/views/i3status.conf ~/.config/i3/i3status.conf
 	-ln -sf ~/dotfiles/lockscreen ~/dotfiles/suspend-lockscreen ~/.bin
 	#-sudo ln -sf ~/dotfiles/views/screenlock.service /etc/systemd/system/
 	#sudo systemctl enable screenlock.service

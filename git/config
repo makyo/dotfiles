@@ -20,3 +20,5 @@
         sync = "!f() { git checkout $2 && git pull $1 $2 && git push origin $2; }; f"
 [credential]
 	helper = cache
+[pull]
+	rebase = false

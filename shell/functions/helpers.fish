@@ -7,7 +7,7 @@ function fa
 end
 
 function zk
-    vi -c VimwikiIndex
+    nvim -c VimwikiIndex
 end
 
 if command lsd --version > /dev/null 2>&1
