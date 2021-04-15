@@ -10,6 +10,10 @@ function zk
     vi -c VimwikiIndex
 end
 
+function def
+    cli-dictionary $argv en
+end
+
 if command lsd --version > /dev/null 2>&1
     function ll
         lsd -l $argv
