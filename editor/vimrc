@@ -116,6 +116,7 @@ let g:vimwiki_use_calendar = 1
 let g:stimmtausch = {'worlds': [
                     \ {'name': 'Taps: Makyo', 'dir': '~/.local/share/stimmtausch/taps_makyo'},
                     \ {'name': 'Taps: Maddy', 'dir': '~/.local/share/stimmtausch/taps_maddy'},
+                    \ {'name': 'Taps: Ephah', 'dir': '~/.local/share/stimmtausch/taps_ephah'},
                     \ {'name': 'SPR: Ephah',  'dir': '~/.local/share/stimmtausch/spr_ephah'},
                     \ {'name': 'Furocity: Mina', 'dir': '~/.local/share/stimmtausch/furocity_mina'},
                     \ {'name': 'Furry: Maddy', 'dir': '~/.local/share/stimmtausch/furry_maddy'}]}
@@ -158,6 +159,10 @@ hi  clear VertSplit
 hi  VertSplit ctermfg=239
 set fillchars+=vert:│
 " }}}
+
+" Vimade for fading inactive splits
+let g:vimade = {}
+let g:vimade.enablesigns = 1
 
 " Airline functionality {{{
 let g:airline_powerline_fonts = 1
