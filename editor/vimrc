@@ -104,6 +104,14 @@ let g:vimwiki_list = [{'path': '~/sparkleup/zk/',
                       \ 'syntax': 'markdown', 'ext': '.md',
                       \ 'list_margin': 0,
                       \ 'nested_syntaxes': {'vimwiki': 'markdown'},
+                      \ 'custom_wiki2html': 'vwmd'},
+                      \ {'path': '~/sparkleup/evergetic.church/',
+                      \ 'auto_tags': 1, 'auto_diary_index': 1, 'auto_export': 1,
+                      \ 'path_html': '~/sparkleup/evergetic.church_html/',
+                      \ 'template_path': '~/sparkleup/evergetic.church_html',
+                      \ 'syntax': 'markdown', 'ext': '.md',
+                      \ 'list_margin': 0,
+                      \ 'nested_syntaxes': {'vimwiki': 'markdown'},
                       \ 'custom_wiki2html': 'vwmd'}]
 let g:vimwiki_auto_chdir = 1
 let g:zettel_format = "%Y-%m-%d-%title-%file_no"
