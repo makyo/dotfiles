@@ -2,6 +2,9 @@ if status is-interactive > /dev/null
         set fish_key_bindings fish_vi_key_bindings
         set -x GOPATH "/home/makyo/work/go"
         set -x PATH $PATH ~/bin ~/.local/bin
+        if test -d /Users/mscottclary
+            set -x PATH $PATH /Users/mscottclary/Library/Python/3.8/bin
+        end
         if test -d /usr/local/opt/python/libexec/bin
             set -x PATH /usr/local/opt/python/libexec/bin $PATH
         end
@@ -23,7 +26,7 @@ if status is-interactive > /dev/null
         set -l GPG_AGENT_INFO (gpg-agent -q --daemon 2>&1 | cut -d '=' -f 2 | cut -d ';' -f 1)
         source ~/.config/fish/functions/helpers.fish
         starship init fish | source
-        if setxkbmap > /dev/null
+        if test -f /usr/bin/setxkbmap  # hacky
             setxkbmap -option compose:caps
         end
 end
