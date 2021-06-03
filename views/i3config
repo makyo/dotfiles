@@ -225,3 +225,5 @@ focus_follows_mouse yes
 exec --no-startup-id dropbox start
 exec --no-startup-id nextcloud_client
 exec --no-startup-id gxkb
+# Backgrounds
+# exec --no-startup-id ~/.fehbg

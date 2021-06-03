@@ -88,3 +88,6 @@
 [submodule "editor/vim/bundle/vimade"]
 	path = editor/vim/bundle/vimade
 	url = https://github.com/TaDaa/vimade
+[submodule "editor/vim/bundle/vim-lilypond"]
+    path = editor/vim/bundle/vim-lilypond
+    url = https://github.com/sersorrel/vim-lilypond

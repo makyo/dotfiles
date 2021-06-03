@@ -212,6 +212,9 @@ nmap <F8> :TagbarToggle<CR>
 " \w for writemode
 nmap <silent> <leader>w :Goyo<cr>
 
+" \we for following wiki link, splitting to do so
+nmap <silent> <leader>we :VimwikiVSplitLink 1<cr>
+
 " \/ for clearing highlighting search terms
 nmap <silent> <leader>/ :noh<cr>
 " }}}
