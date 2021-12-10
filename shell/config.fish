@@ -4,6 +4,8 @@ if status is-interactive > /dev/null
         set -x PATH $PATH ~/bin ~/.local/bin
         if test -d /Users/mscottclary
             set -x PATH $PATH /Users/mscottclary/Library/Python/3.8/bin
+            set -x PATH $PATH /usr/local/opt/openssl@1.1/bin
+            set -x PKG_CONFIG_PATH /usr/local/opt/openssl@1.1/lib/pkgconfig
         end
         if test -d /usr/local/opt/python/libexec/bin
             set -x PATH /usr/local/opt/python/libexec/bin $PATH
