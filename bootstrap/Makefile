@@ -21,7 +21,8 @@ software:
 	sudo apt install fzy silversearcher-ag vim fish golang-go htop jq snapcraft texlive-xetex tf tmux powerline fonts-powerline python3-powerline ruby-dev language-pack-eo aspell-eo python3-pip python3-alsaaudio fzf vit taskwarrior python3-powerline-taskwarrior hledger hledger-ui curl mosh
 	sudo dpkg -i ~/dotfiles/bootstrap/fd*.deb ~/dotfiles/bootstrap/lsd*.deb
 	# Ignore errors on this because c'mon, snap...
-	-sudo snap install hugo universal-ctags nvim
+	-sudo snap install hugo universal-ctags
+	-sudo snap install --classic nvim
 	-sudo snap install stimmtausch --channel=edge
 	sudo pip3 install tv2 powerline-shell thefuck vimwiki_markdown markdown_vimwiki markdown_editing markdown_verse pynvim
 	sudo gem install jekyll bundler
@@ -33,7 +34,7 @@ software:
 
 .PHONY: x-software
 x-software:
-	sudo apt install i3 firefox  sparkleshare hledger-web scrot musescore3 redshift-gtk
+	sudo apt install i3 firefox  sparkleshare hledger-web scrot musescore3 redshift-gtk i3blocks
 	sudo dpkg -i ~/dotfiles/bootstrap/light*.deb
 	# sudo snap install spotify slack nextcloud-client
 	sudo snap install spotify
@@ -60,6 +61,7 @@ link-shell:
 	rm -f ~/.bashrc
 	ln -sf ~/dotfiles/shell/bashrc ~/.bashrc
 	-ln -sf ~/dotfiles/shell/powerline-shell ~/.config/
+	-ln -sf ~/dotfiles/shell/starship.toml ~/.config/
 
 .PHONY: link-chat
 link-chat:
@@ -109,9 +111,10 @@ x-link-editor:
 
 .PHONY: x-link-views
 x-link-views:
-	mkdir -p ~/.config/i3
+	mkdir -p ~/.config/i3 ~/.config/i3blocks
 	-ln -sf ~/dotfiles/views/i3config ~/.config/i3/config
 	-ln -sf ~/dotfiles/views/i3status.conf ~/.config/i3/i3status.conf
 	-ln -sf ~/dotfiles/lockscreen ~/dotfiles/suspend-lockscreen ~/.bin
+	-ln -sf ~/dotfiles/views/i3blocksconfig ~/.config/i3blocks/config
 	#-sudo ln -sf ~/dotfiles/views/screenlock.service /etc/systemd/system/
 	#sudo systemctl enable screenlock.service
