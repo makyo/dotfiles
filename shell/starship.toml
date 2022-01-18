@@ -64,9 +64,8 @@ format = "in [$path]($style)[$read_only]($read_only_style) "
 style = "yellow"
 
 [character]
-style_success = "bold 77"
-style_failure = "bold 161"
-symbol = ""
+success_symbol = "[❯](bold 77)"
+error_symbol = "[❯](bold 161)"
 vicmd_symbol = ""
 
 [time]
@@ -104,7 +103,6 @@ symbol = " "
 style = "underline 149"
 
 [git_status]
-separator = "|"
 style = "bold 250"
 modified = "[$count ✎](yellow) "
 untracked = "[$count ](161) "
