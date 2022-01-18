@@ -23,7 +23,7 @@ software:
 	# Ignore errors on this because c'mon, snap...
 	-sudo snap install hugo universal-ctags nvim
 	-sudo snap install stimmtausch --channel=edge
-	sudo pip3 install tv2 powerline-shell thefuck vimwiki_markdown markdown_vimwiki markdown_editing markdown_verse
+	sudo pip3 install tv2 powerline-shell thefuck vimwiki_markdown markdown_vimwiki markdown_editing markdown_verse pynvim
 	sudo gem install jekyll bundler
 	-git clone git@github.com:makyo/sparkleup.git ~/sparkleup
 	cd ~/sparkleup; \
@@ -33,7 +33,7 @@ software:
 
 .PHONY: x-software
 x-software:
-	sudo apt install i3 firefox  sparkleshare hledger-web scrot musescore3
+	sudo apt install i3 firefox  sparkleshare hledger-web scrot musescore3 redshift-gtk
 	sudo dpkg -i ~/dotfiles/bootstrap/light*.deb
 	# sudo snap install spotify slack nextcloud-client
 	sudo snap install spotify

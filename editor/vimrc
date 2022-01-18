@@ -77,8 +77,10 @@ autocmd FileType mail,debchangelog set tw=72
 autocmd FileType markdown,rst,vimwiki set spell
 
 " Use pencil when writing
-autocmd BufRead,BufNewFile *.md,*.mkd set ft=markdown wrap linebreak
-autocmd FileType tex,markdown,vimwiki SoftPencil
+autocmd BufRead,BufNewFile *.md,*.mkd set ft=markdown
+autocmd FileType plaintex set ft=tex
+autocmd FileType plaintex,tex,markdown,vimwiki set wrap linebreak
+autocmd FileType plaintex,tex,markdown,vimwiki SoftPencil
 
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
@@ -109,6 +111,14 @@ let g:vimwiki_list = [{'path': '~/sparkleup/zk/',
                       \ 'auto_tags': 1, 'auto_diary_index': 1, 'auto_export': 1,
                       \ 'path_html': '~/sparkleup/evergetic.church_html/',
                       \ 'template_path': '~/sparkleup/evergetic.church_html',
+                      \ 'syntax': 'markdown', 'ext': '.md',
+                      \ 'list_margin': 0,
+                      \ 'nested_syntaxes': {'vimwiki': 'markdown'},
+                      \ 'custom_wiki2html': 'vwmd'},
+                      \ {'path': '~/work/writing/toledot-arg/',
+                      \ 'auto_tags': 1, 'auto_diary_index': 1, 'auto_export': 1,
+                      \ 'path_html': '~/work/writing/toledot-arg/html/',
+                      \ 'template_path': '~/work/writing/toledot-arg/html/',
                       \ 'syntax': 'markdown', 'ext': '.md',
                       \ 'list_margin': 0,
                       \ 'nested_syntaxes': {'vimwiki': 'markdown'},
@@ -171,6 +181,7 @@ set fillchars+=vert:│
 " Vimade for fading inactive splits
 let g:vimade = {}
 let g:vimade.enablesigns = 1
+let g:vimade.fadelevel = 0.3
 
 " Airline functionality {{{
 let g:airline_powerline_fonts = 1
@@ -214,6 +225,11 @@ nmap <silent> <leader>w :Goyo<cr>
 
 " \we for following wiki link, splitting to do so
 nmap <silent> <leader>we :VimwikiVSplitLink 1<cr>
+nmap <silent> <leader>wE :VimwikiSplitLink 1<cr>
+nmap <silent> <leader>wT :VimwikiTabnewLink<cr>
+
+" \cb for deleting hidden buffers when things slow down
+nnoremap <silent> <leader>cb :DeleteHiddenBuffers<cr>
 
 " \/ for clearing highlighting search terms
 nmap <silent> <leader>/ :noh<cr>

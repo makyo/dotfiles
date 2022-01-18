@@ -48,7 +48,7 @@ format = "[$env_value]($style) "
 
 [username]
 show_always = true
-format = "via [$user]($style) "
+format = "as [$user]($style) "
 style_user = "underline 35"
 
 [hostname]
