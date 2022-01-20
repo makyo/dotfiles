@@ -221,7 +221,7 @@ bindsym XF86MonBrightnessUp exec light -A 10.0 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 10.0 # decrease screen brightness
 
 # Monitor
-bindsym $mod+o exec /home/makyo/bin/toggle-hdmi.sh
+bindsym $mod+o exec /home/mscottclary/bin/toggle-hdmi.sh
 
 # Scale
 #bindsym $mod+Ctrl+- exec xrandr --output eDP-1 --scale 1.2x1.2
