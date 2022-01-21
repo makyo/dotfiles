@@ -94,6 +94,6 @@
 [submodule "editor/vim/bundle/vim-delete-hidden-buffers"]
 	path = editor/vim/bundle/vim-delete-hidden-buffers
 	url = https://github.com/arithran/vim-delete-hidden-buffers.git
-[submodule "editor/vim/bundle/vim-easyoperator-phrase"]
-	path = editor/vim/bundle/vim-easyoperator-phrase
-	url = https://github.com/haya14busa/vim-easyoperator-phrase
+[submodule "editor/vim/bundle/vim-easymotion"]
+	path = editor/vim/bundle/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion
