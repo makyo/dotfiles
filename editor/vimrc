@@ -99,15 +99,30 @@ autocmd! User GoyoLeave source ~/.vimrc
 " }}}
 
 " Zettelkasten and Vimwiki stuff {{{
-let g:vimwiki_list = [{'path': '~/sparkleup/do/',
+let g:vimwiki_list = [{'path': '~/sparkleup/zk/',
                       \ 'auto_tags': 1, 'auto_diary_index': 1, 'auto_export': 1,
-                      \ 'path_html': '~/sparkleup/do_html/',
-                      \ 'template_path': '~/sparkleup/do_html',
+                      \ 'path_html': '~/sparkleup/zk_html/',
+                      \ 'template_path': '~/sparkleup/zk_html',
                       \ 'syntax': 'markdown', 'ext': '.md',
                       \ 'list_margin': 0,
                       \ 'nested_syntaxes': {'vimwiki': 'markdown'},
-                      \ 'custom_wiki2html': 'vwmd',
-                      \ 'diary_rel_path': 'scratch', 'diary_index': 'index', 'diary_header': 'Scratch'}]
+                      \ 'custom_wiki2html': 'vwmd'},
+                      \ {'path': '~/sparkleup/evergetic.church/',
+                      \ 'auto_tags': 1, 'auto_diary_index': 1, 'auto_export': 1,
+                      \ 'path_html': '~/sparkleup/evergetic.church_html/',
+                      \ 'template_path': '~/sparkleup/evergetic.church_html',
+                      \ 'syntax': 'markdown', 'ext': '.md',
+                      \ 'list_margin': 0,
+                      \ 'nested_syntaxes': {'vimwiki': 'markdown'},
+                      \ 'custom_wiki2html': 'vwmd'},
+                      \ {'path': '~/work/writing/toledot-arg/',
+                      \ 'auto_tags': 1, 'auto_diary_index': 1, 'auto_export': 1,
+                      \ 'path_html': '~/work/writing/toledot-arg/html/',
+                      \ 'template_path': '~/work/writing/toledot-arg/html/',
+                      \ 'syntax': 'markdown', 'ext': '.md',
+                      \ 'list_margin': 0,
+                      \ 'nested_syntaxes': {'vimwiki': 'markdown'},
+                      \ 'custom_wiki2html': 'vwmd'}]
 let g:vimwiki_auto_chdir = 1
 let g:zettel_format = "%Y-%m-%d-%title-%file_no"
 let g:vimwiki_global_ext = 0
