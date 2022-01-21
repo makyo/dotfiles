@@ -70,9 +70,6 @@ autocmd FileType javascript,yaml,coffee,tex,yaml set ts=2 sw=2 sts=2
 autocmd FileType go,ledger,make set noet
 autocmd FileType make set ts=8 sw=8
 
-" textwidth in an email should be 72 characters
-autocmd FileType mail,debchangelog set tw=72
-
 " Writing stuff {{{
 autocmd FileType markdown,rst,vimwiki set spell
 
@@ -137,7 +134,8 @@ let g:stimmtausch = {'worlds': [
                     \ {'name': 'Taps: Ephah', 'dir': '~/.local/share/stimmtausch/taps_ephah'},
                     \ {'name': 'SPR: Ephah',  'dir': '~/.local/share/stimmtausch/spr_ephah'},
                     \ {'name': 'Furocity: Mina', 'dir': '~/.local/share/stimmtausch/furocity_mina'},
-                    \ {'name': 'Furry: Maddy', 'dir': '~/.local/share/stimmtausch/furry_maddy'}]}
+                    \ {'name': 'Furry: Maddy', 'dir': '~/.local/share/stimmtausch/furry_maddy'},
+                    \ {'name': 'Taps: Slow Hours', 'dir': '~/.local/share/stimmtausch/taps_sarai'}]}
 nmap <silent> <Leader>st :call Stimmtausch()<CR>
 " Editing GPG files
 let g:GPGPrimeAgent = 1
