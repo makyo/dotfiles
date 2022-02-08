@@ -21,6 +21,7 @@ if status is-interactive > /dev/null
         end
         set -x GPG_TTY (tty)
         set -x EDITOR "/usr/bin/vim"
+        set -x BROWSER (which firefox)
         set -x JUJU_REPOSITORY /home/makyo/work/charms
         set -x LAYER_PATH $JUJU_REPOSITORY/layers
         set -x INTERFACE_PATH $JUJU_REPOSITORY/interfaces
