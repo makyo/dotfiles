@@ -1,12 +1,7 @@
 if status is-interactive > /dev/null
         set fish_key_bindings fish_vi_key_bindings
-        set -x GOPATH "/home/makyo/work/go"
+        set -x GOPATH "$HOME/work/go"
         set -x PATH $PATH ~/bin ~/.local/bin
-        if test -d /Users/mscottclary
-            set -x PATH $PATH /Users/mscottclary/Library/Python/3.8/bin
-            set -x PATH $PATH /usr/local/opt/openssl@1.1/bin
-            set -x PKG_CONFIG_PATH /usr/local/opt/openssl@1.1/lib/pkgconfig
-        end
         if test -d /usr/local/opt/python/libexec/bin
             set -x PATH /usr/local/opt/python/libexec/bin $PATH
         end
@@ -21,10 +16,10 @@ if status is-interactive > /dev/null
         end
         set -x GPG_TTY (tty)
         set -x EDITOR "/usr/bin/vim"
-        set -x JUJU_REPOSITORY /home/makyo/work/charms
+        set -x JUJU_REPOSITORY $HOME/work/charms
         set -x LAYER_PATH $JUJU_REPOSITORY/layers
         set -x INTERFACE_PATH $JUJU_REPOSITORY/interfaces
-        set -x VIMWIKI_MARKDOWN_EXTENSIONS markdown_vimwiki,markdown_verse,markdown_editing,toc,wikilinks,extra,smarty
+        set -x VIMWIKI_MARKDOWN_EXTENSIONS markdown_vimwiki,markdown_verse,markdown_editing,toc,wikilinks,extra,smarty,markdown_strikethrough
         set -l GPG_AGENT_INFO (gpg-agent -q --daemon 2>&1 | cut -d '=' -f 2 | cut -d ';' -f 1)
         source ~/.config/fish/functions/helpers.fish
         starship init fish | source
