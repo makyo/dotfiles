@@ -48,3 +48,34 @@ hi link SpecialChar     Special
 hi link Delimiter       Special
 hi link SpecialComment Special
 hi link Debug           Special
+
+" Maddy changes
+" Git
+hi  SignColumn ctermbg=None
+
+" Minimalist tabline and splits
+" Consider adding the following:
+"   set fillchars+=vert:│
+hi  clear TabLineFill
+hi  clear TabLine
+hi  clear TabLineSel
+hi  TabLineFill cterm=underline ctermfg=239
+hi  TabLine cterm=underline ctermfg=242
+hi  TabLineSel  cterm=underline ctermfg=241 ctermbg=235
+hi  clear VertSplit
+hi  VertSplit ctermfg=239
+
+" Chill out some of the brighter colors
+hi  Comment term=bold ctermfg=DarkCyan
+hi  String  term=underline  ctermfg=103
+hi  Operator  ctermfg=204
+hi  Statement term=bold ctermfg=LightGreen
+hi  Conditional term=bold ctermfg=LightGreen
+hi  Repeat  term=bold ctermfg=LightGreen
+hi  Todo  term=standout ctermbg=54  ctermfg=LightCyan
+hi  clear SpellBad
+hi  SpellBad  cterm=underline ctermfg=161
+hi  markdownItalic  cterm=italic ctermfg=Magenta
+hi  LineNr ctermfg=239
+hi  NonText ctermfg=239
+hi  Search cterm=italic ctermfg=232 ctermbg=60
