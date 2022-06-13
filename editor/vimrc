@@ -73,6 +73,8 @@ autocmd FileType make set ts=8 sw=8
 " Writing stuff {{{
 autocmd FileType markdown,rst,vimwiki set spell
 
+autocmd BufEnter * set conceallevel=0
+
 " Use pencil when writing
 autocmd BufRead,BufNewFile *.md,*.mkd set ft=markdown
 autocmd FileType plaintex set ft=tex
@@ -124,6 +126,7 @@ let g:vimwiki_auto_chdir = 1
 let g:zettel_format = "%Y-%m-%d-%title-%file_no"
 let g:vimwiki_global_ext = 0
 let g:vimwiki_use_calendar = 1
+let g:vimwiki_conceallevel=0
 " }}}
 " }}}
 
@@ -145,7 +148,10 @@ let g:tagbar_ctags_bin = '/snap/bin/universal-ctags'
 
 " Themes {{{
 syntax on
-colo elflord
+colo oldelf
+"hi  Normal ctermbg=NONE guibg=NONE
+"hi  EndOfBuffer ctermbg=NONE guibg=NONE
+"hi  Visual term=reverse ctermbg=242 guibg=DarkGray
 
 " Customizations to elflord {{{
 hi  Comment term=bold ctermfg=DarkCyan
@@ -231,6 +237,9 @@ nnoremap <silent> <leader>cb :DeleteHiddenBuffers<cr>
 
 " \/ for clearing highlighting search terms
 nmap <silent> <leader>/ :noh<cr>
+
+" Maddy, with the lazy paws
+command Wq wq
 " }}}
 
 " vim: foldmethod=marker ts=2 sw=2 sts=2 tw=79 et
