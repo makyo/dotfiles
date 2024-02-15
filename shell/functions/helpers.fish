@@ -10,6 +10,10 @@ function zk
     nvim -c VimwikiIndex
 end
 
+function lw
+    nohup librewolf $argv > /dev/null 2>&1 &
+end
+
 function def
     cli-dictionary $argv en
 end
@@ -73,4 +77,8 @@ end
 
 function vt
     vi -c :NERDTree
+end
+
+function icat
+    kitty icat $argv
 end

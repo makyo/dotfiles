@@ -1,10 +1,10 @@
 function s:hilist()
-    syn match LRejected /\s*\(\d\.\|\*\) \[-\]/hs=s+2
-    syn match LDone0    /\s*\(\d\.\|\*\) \[ \]/hs=s+2
-    syn match LDone1    /\s*\(\d\.\|\*\) \[\.\]/hs=s+2
-    syn match LDone2    /\C\s*\(\d\.\|\*\) \[o\]/hs=s+2
-    syn match LDone3    /\C\s*\(\d\.\|\*\) \[O\]/hs=s+2
-    syn match LDone4    /\s*\(\d\.\|\*\) \[X\]/hs=s+2
+    syn match LRejected /\s*\(\d\+\.\|\*\) \[-\]/hs=s+2
+    syn match LDone0    /\s*\(\d\+\.\|\*\) \[ \]/hs=s+2
+    syn match LDone1    /\s*\(\d\+\.\|\*\) \[\.\]/hs=s+2
+    syn match LDone2    /\C\s*\(\d\+\.\|\*\) \[o\]/hs=s+2
+    syn match LDone3    /\C\s*\(\d\+\.\|\*\) \[O\]/hs=s+2
+    syn match LDone4    /\s*\(\d\+\.\|\*\) \[X\]/hs=s+2
 
     hi LRejected ctermfg=160
     hi LDone0    ctermfg=245

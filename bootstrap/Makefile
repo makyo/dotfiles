@@ -24,7 +24,7 @@ software:
 	-sudo snap install hugo universal-ctags
 	-sudo snap install --classic nvim
 	-sudo snap install stimmtausch --channel=edge
-	sudo pip3 install tv2 powerline-shell thefuck vimwiki_markdown markdown_vimwiki markdown_editing markdown_verse pynvim
+	sudo pip3 install tv2 powerline-shell thefuck vimwiki_markdown markdown_vimwiki markdown_editing markdown_verse pynvim pymdown-extensions
 	sudo gem install jekyll bundler
 	-git clone git@github.com:makyo/sparkleup.git ~/sparkleup
 	cd ~/sparkleup; \

@@ -24,8 +24,8 @@ client.focused_inactive $darkbg         $darkbg         $lightfg        $darkbg 
 client.urgent           $darkwarning    $darkwarning    $lightfg        $darkwarning    $darkwarning
 client.background       $darkbg
 
-default_border normal 3
-hide_edge_borders both
+default_border normal 2
+hide_edge_borders horizontal
 ### /
 
 set $mod Mod4

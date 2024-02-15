@@ -43,6 +43,6 @@ markup=pango
 interval=1
 
 [time]
-command=date +"%A, %B %_d, %Y %X"
+command=i3time
 interval=1
 color=#8fbc8f

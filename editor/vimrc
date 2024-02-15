@@ -14,6 +14,7 @@ set number              " Number lines
 set splitright splitbelow " Open splits to the right/below (makes more sense to me)
 set encoding=utf-8      " Duh
 set mouse=nvhi          " Mouse in normal, visual, help, insert
+set mousemodel=extend
 scriptencoding utf-8
 " More intuitive baskspacing
 set backspace=indent,eol,start
@@ -105,22 +106,6 @@ let g:vimwiki_list = [{'path': '~/sparkleup/zk/',
                       \ 'syntax': 'markdown', 'ext': '.md',
                       \ 'list_margin': 0,
                       \ 'nested_syntaxes': {'vimwiki': 'markdown'},
-                      \ 'custom_wiki2html': 'vwmd'},
-                      \ {'path': '~/sparkleup/evergetic.church/',
-                      \ 'auto_tags': 1, 'auto_diary_index': 1, 'auto_export': 1,
-                      \ 'path_html': '~/sparkleup/evergetic.church_html/',
-                      \ 'template_path': '~/sparkleup/evergetic.church_html',
-                      \ 'syntax': 'markdown', 'ext': '.md',
-                      \ 'list_margin': 0,
-                      \ 'nested_syntaxes': {'vimwiki': 'markdown'},
-                      \ 'custom_wiki2html': 'vwmd'},
-                      \ {'path': '~/work/writing/toledot-arg/',
-                      \ 'auto_tags': 1, 'auto_diary_index': 1, 'auto_export': 1,
-                      \ 'path_html': '~/work/writing/toledot-arg/html/',
-                      \ 'template_path': '~/work/writing/toledot-arg/html/',
-                      \ 'syntax': 'markdown', 'ext': '.md',
-                      \ 'list_margin': 0,
-                      \ 'nested_syntaxes': {'vimwiki': 'markdown'},
                       \ 'custom_wiki2html': 'vwmd'}]
 let g:vimwiki_auto_chdir = 1
 let g:zettel_format = "%Y-%m-%d-%title-%file_no"
@@ -134,9 +119,6 @@ let g:vimwiki_conceallevel=0
 let g:stimmtausch = {'worlds': [
                     \ {'name': 'Taps: Makyo', 'dir': '~/.local/share/stimmtausch/taps_makyo'},
                     \ {'name': 'Taps: Maddy', 'dir': '~/.local/share/stimmtausch/taps_maddy'},
-                    \ {'name': 'Taps: Ephah', 'dir': '~/.local/share/stimmtausch/taps_ephah'},
-                    \ {'name': 'SPR: Ephah',  'dir': '~/.local/share/stimmtausch/spr_ephah'},
-                    \ {'name': 'Furocity: Mina', 'dir': '~/.local/share/stimmtausch/furocity_mina'},
                     \ {'name': 'Furry: Maddy', 'dir': '~/.local/share/stimmtausch/furry_maddy'},
                     \ {'name': 'Taps: Slow Hours', 'dir': '~/.local/share/stimmtausch/taps_sarai'}]}
 nmap <silent> <Leader>st :call Stimmtausch()<CR>
@@ -203,7 +185,7 @@ nmap <leader>f :NERDTree<cr>
 nmap <F8> :TagbarToggle<CR>
 
 " \w for writemode
-nmap <silent> <leader>w :Goyo<cr>
+nmap <silent> <leader>w<space> :Goyo<cr>
 
 " \we for following wiki link, splitting to do so
 nmap <silent> <leader>we :VimwikiVSplitLink 1<cr>
