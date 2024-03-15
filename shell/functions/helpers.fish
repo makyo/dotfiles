@@ -14,6 +14,14 @@ function lw
     nohup librewolf $argv > /dev/null 2>&1 &
 end
 
+function vdiff
+    nvim -d $argv
+end
+
+function pand
+    pandoc --wrap=none $argv
+end
+
 function def
     cli-dictionary $argv en
 end
