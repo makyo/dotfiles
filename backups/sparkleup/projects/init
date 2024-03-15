@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GIT_SSH="ssh -i ~/.dotfiles/private-dotfiles/keys/sparkleup"
+export GIT_SSH_COMMAND="ssh -i ~/.dotfiles/private-dotfiles/keys/sparkleup"
 cd ~/sparkleup
 #git clone --depth 1 gitea@makyo.dev:makyo/hybrid
 #git clone --depth 1 gitea@makyo.dev:makyo/logs

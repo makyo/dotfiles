@@ -14,6 +14,10 @@ function lw
     nohup librewolf $argv > /dev/null 2>&1 &
 end
 
+function s
+    kitten ssh $argv
+end
+
 function def
     cli-dictionary $argv en
 end
