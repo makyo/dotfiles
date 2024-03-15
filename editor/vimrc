@@ -30,22 +30,6 @@ set t_vb=
 " Load plugins
 call pathogen#infect() 
 
-" Display stuff {{{
-" Turn on syntax highlighting if our version of vim supports it (i.e. avoid
-" errors when running vim.tiny)
-if has("syntax")
-endif
-" }}}
-
-" Mouse stuff {{{
-" Hopefully reasonable mouse defaults...  This enables the mouse in normal and
-" visual mode, so we can use it to resize windows in normal mode (and, if we
-" wish, to select stuff).  It also enables it when editing a help file.  (I'm
-" not sure if this is needed, since we'd be in normal mode at that point...)
-if has("mouse")
-endif
-" }}}
-
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -143,10 +127,11 @@ let java_highlight_java_lang_ids=1
 set fillchars+=vert:│
 " }}}
 
-" Vimade for fading inactive splits
+" Vimade for fading inactive splits {{{
 let g:vimade = {}
 let g:vimade.enablesigns = 1
 let g:vimade.fadelevel = 0.3
+" }}}
 
 " Airline functionality {{{
 let g:airline_powerline_fonts = 1
