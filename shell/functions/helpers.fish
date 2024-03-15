@@ -22,6 +22,10 @@ function pand
     pandoc --wrap=none $argv
 end
 
+function s
+    kitten ssh $argv
+end
+
 function def
     cli-dictionary $argv en
 end
