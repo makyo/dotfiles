@@ -2,4 +2,4 @@
 
 echo "$@" > ~/args
 
-nohup vimwiki_markdown "$@" 2>&1 > ~/nohup.out &
+nohup vimwiki_markdown "$@" 2>&1 > ~/nohup.out && nohup ~/sparkleup/sparkleup/projects/zk 2>&1 >> ~/nohup.out &

@@ -1,7 +1,6 @@
 command_timeout = 10000
 format = """\
-    $env_var\
-    $battery\
+      $battery\
     $time\
     $username\
     $hostname\
@@ -22,6 +21,7 @@ format = """\
     $jobs\
     $character\
 """
+    #$env_var\
     #$package\
     #$dotnet\
     #$elixir\

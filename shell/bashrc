@@ -134,3 +134,4 @@ export HADOOP_LIBEXEC_DIR=/home/webcrawl/hadoop-2/hadoop/libexec
 export HADOOP_HDFS_HOME=/home/webcrawl/hadoop-2/hadoop-hdfs
 
 export EDITOR=/usr/local/bin/vim
+. "$HOME/.cargo/env"

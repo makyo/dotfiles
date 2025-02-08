@@ -106,3 +106,9 @@
 [submodule "editor/vim/bundle/papercolor-theme"]
 	path = editor/vim/bundle/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme
+[submodule "editor/vim/bundle/vim-racket"]
+	path = editor/vim/bundle/vim-racket
+	url = https://github.com/benknoble/vim-racket.git
+[submodule "editor/vim/bundle/instant.nvim"]
+	path = editor/vim/bundle/instant.nvim
+	url = https://github.com/jbyuki/instant.nvim

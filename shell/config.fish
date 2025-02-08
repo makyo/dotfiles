@@ -1,7 +1,7 @@
 if status is-interactive > /dev/null
         set fish_key_bindings fish_vi_key_bindings
         set -x GOPATH "$HOME/work/go"
-        set -x PATH $PATH ~/bin ~/.local/bin
+        set -x PATH $PATH /usr/local/go/bin ~/bin ~/.local/bin
         if test -d /usr/local/opt/python/libexec/bin
             set -x PATH /usr/local/opt/python/libexec/bin $PATH
         end
@@ -23,6 +23,8 @@ if status is-interactive > /dev/null
         set -x VIMWIKI_MARKDOWN_EXTENSIONS markdown_vimwiki,markdown_verse,markdown_editing,toc,wikilinks,extra,smarty,pymdownx.tilde #,markdown_strikethrough
         set -l GPG_AGENT_INFO (gpg-agent -q --daemon 2>&1 | cut -d '=' -f 2 | cut -d ';' -f 1)
         set -x TERM_PROGRAM kitty
+        set -x TERMINAL kitty
+        set -x LESSCHARSET utf-8
         source ~/.config/fish/functions/helpers.fish
         starship init fish | source
         if test -f /usr/bin/setxkbmap  # hacky
@@ -31,4 +33,4 @@ if status is-interactive > /dev/null
 end
 
 starship init fish | source
-thefuck --alias | source
+#thefuck --alias | source

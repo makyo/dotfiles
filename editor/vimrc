@@ -185,6 +185,7 @@ nmap <silent> <leader>/ :noh<cr>
 
 " Maddy, with the lazy paws
 command Wq wq
+command Wqa wqa
 " }}}
 
 " vim: foldmethod=marker ts=2 sw=2 sts=2 tw=79 et
